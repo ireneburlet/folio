@@ -1,5 +1,5 @@
 (function(){
-	var praticle = {};
+	var particle = {};
 
 	particle.position = {};
 
