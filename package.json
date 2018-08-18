@@ -1,0 +1,34 @@
+{
+	"name": "my-folio",
+	"version": "1.0.0",
+	"description": "My portfolio",
+	"main": "src/js/index.js",
+	"scripts": {
+		"jshint:dist": "jshint src/js/*.js",
+		"jshint": "npm run jshint:dist",
+		"concat:less": "concat -o ./tmp/styles.less src/styles/*.less",
+		"less:dist": "lessc tmp/styles.less dist/css/main.min.css",
+		"less": "npm run less:dist",
+		"uglify:dist": "mkdir dist/js -p && uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",
+		"uglify": "npm run uglify:dist",
+		"build:js": "npm run jshint && npm run uglify",
+		"build:css": "npm run concat:less && npm run less",
+		"build": "npm run clean && npm run build:js && npm run build:css",
+		"clean": "rm -rf dist/*",
+		"serve": "browser-sync start -s -f 'dist/css/styles.css' 'dist/css/*.css, dist/js/*.js' -b chromium --port 8080 -w",
+		"watch:css": "onchange 'src/styles/*.less' -- npm run build:css",
+		"watch:js": "onchange 'src/js/*.js' -- npm run build:js",
+		"watch": "npm-run-all build -p serve watch:js watch:css"
+	},
+	"dependencies": {
+		"concat": "latest",
+		"jshint": "latest",
+		"opn-cli": "latest",
+		"uglify-js": "latest",
+		"onchange": "latest",
+		"browser-sync": "latest"
+	},
+	"devDependencies": {
+		"npm-run-all": "^4.1.3"
+	}
+}
