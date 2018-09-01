@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+html, body {
+	overflow: hidden
+}
+
 html{
 	height: 100%;
 }
@@ -24,6 +28,7 @@ main{
 
 #fullpage{
 	transform: translate3d(0px, 0px, 0px);
+	transition: transform 1s ease-in;
 }
 
 h1{
@@ -38,6 +43,16 @@ section{
 	width: 100%;
 	height: 100%;
 	display: flex;
+}
+
+.up-scroll{
+	transform: translateY(-100vh);
+	transition: transform 1s ease-in;
+}
+
+.down-scroll{
+	transform: translateY(100vh);
+	transition: transform 1s ease-in;
 }
 
 .s1{
