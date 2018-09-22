@@ -51,7 +51,7 @@
 		}, slideDuration);
 	};
 
-	/*---------- Event Listener -------------*/
+	/*---------- Scroll Event Listener -------------*/
 	var mouseWheelEvent = isFirefox ? 'DOMMouseScroll' : 'wheel';
 	window.addEventListener(mouseWheelEvent, _.throttle(scroll.onScroll, 60), false);
 
@@ -60,8 +60,7 @@
 		scroll.offsetY -= scroll.windowHeight;
 		translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
 		$('.fullpage-container').css("transform", translation);
-		scroll.heightIndicator -= 25;
-		$('.indicator').css("bottom", scroll.heightIndicator + "vh;");
+		$('.i' + scroll.currentSlideNumber).removeClass("indicator");
 		scroll.currentSlideNumber++;
 	};
 
@@ -69,13 +68,27 @@
 		scroll.offsetY += scroll.windowHeight;
 		translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
 		$('.fullpage-container').css("transform", translation);
-		scroll.heightIndicator += 25;
-		$('.indicator').css("bottom", scroll.heightIndicator + "vh;");
 		scroll.currentSlideNumber--;
+		$('.i' + scroll.currentSlideNumber).addClass("indicator");
+	};
+	
+	scroll.handleClick = function(e){
+		var clickedAnchor = e.currentTarget.dataset.anchor;
+		var cSlideNmb = scroll.currentSlideNumber;
+
+		if(cSlideNmb > clickedAnchor){
+			for(i = cSlideNmb; i > clickedAnchor; i--){
+				scroll.previousSection();
+			}
+		}
+		else if(cSlideNmb < clickedAnchor){
+			for(i = cSlideNmb; i < clickedAnchor; i++){
+				scroll.nextSection();
+			}
+		}
 	};
 
-	scroll.changeIndicator = function() {
-		
-	}
+	/*--------------- Click nav event listener -----------------*/
+	$('#navigation').on("click", "a", _.throttle(scroll.handleClick, 60));
 
 }());

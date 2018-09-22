@@ -48,16 +48,6 @@ section{
 	align-items: center;
 }
 
-/*.up-scroll{
-	transform: translateY(-100vh);
-	transition: transform 1s ease-in;
-}
-
-.down-scroll{
-	transform: translateY(100vh);
-	transition: transform 1s ease-in;
-}*/
-
 .s1{
 	background-color: @section1;
 }
@@ -69,36 +59,58 @@ section{
 .scroll{
 	position: absolute;
 	height: 100vh;
-	border-left: 1px solid rgba(255,255,255, 0.4);
+	border-right: 1px solid rgba(255,255,255, 0.2);
 	top: 0;
 	bottom: 0;
 	right: 12vw;
 	z-index: 3;
 }
 
+nav a{
+	div {
+		position: absolute;
+		height: 25vh;
+		border-right: 1px solid rgb(255,255,255);
+		opacity: 0;
+		bottom: 0;
+		right: 12vw;
+		z-index: 4;
+		padding: 0 20px;
+		transition: opacity 0.5s ease, border-width 0.5s ease;
+	}
+
+	div:hover {
+		border-width: 4px;
+		opacity: 1;
+		transition: opacity 0.5s ease, border-width 0.5s ease;
+	}
+}
+
 .indicator{
-	position: absolute;
-	height: 25vh;
-	border-left: 1px solid rgba(255,255,255, 1);
-	bottom: 0;
-	right: 12vw;
-	z-index: 4;
-	transition: height @transition-speed ease-in;
+	opacity: 1;
+	/*animation-name: changeHeight;
+	animation-duration: 1s;
+	animation-timing-function: ease-in;*/
+}
+
+@keyframes changeHeight {
+	from{
+		height: 0;
+	}
+
+	to{
+		height: 25vh;
+	}
+}
+
+.i0{
+	bottom: 75vh;
 }
 
 .i1{
-	bottom: 75vh;
-	opacity: 0;
-}
-
-.i2{
 	bottom: 50vh;
 }
 
-.i3{
+.i2{
 	bottom: 25vh;
-}
-
-.indicator:hover{
-	border-width: 3;
 }
