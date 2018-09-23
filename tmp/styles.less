@@ -1,7 +1,7 @@
 /* VARIABLES */
 
 @pColor: #ff0000;
-@bgColor: rgb(51,51,51);
+@bgColor: rgb(25,25,25);
 @section1: rgb(50,10,60);
 @section2: rgb(0,120,120);
 
@@ -36,33 +36,13 @@ main{
 	position: relative;
 }
 
+/*----------------
+NAVIGATION
+----------------*/
+
 #fullpage{
 	transform: translate3d(0px, -300vh, 0px);
 	transition: transform @transition-speed ease-in;
-}
-
-h1{
-	font-size: 3em;
-}
-
-h2{
-	font-size: 1.5em;
-}
-
-section{
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.s1{
-	background-color: @section1;
-}
-
-.s2{
-	background-color: @section2;
 }
 
 .scroll{
@@ -123,3 +103,43 @@ nav a{
 .i2{
 	bottom: 25vh;
 }
+
+/*------------
+SECTIONS
+------------*/
+
+.fullProportion{
+	width: 100%;
+	height: 100%;
+}
+
+section{
+	.fullProportion();
+	.ctn-content{
+		.fullProportion();
+		position: relative;
+		/*display: flex;
+		justify-content: center;
+		align-items: center;*/
+	}
+}
+
+h2{
+	font-size: 3em;
+}
+
+/* Home - Section 4 */
+.s4{
+	.ctn-sketch{
+		position: absolute;
+		overflow: hidden;
+		top: 50vh;
+		left: 20vw;
+		transform: translateY(-50%);
+		border-radius: 10vw;
+	}
+	h2{
+		margin: auto;
+	}
+}
+
