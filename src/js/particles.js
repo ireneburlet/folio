@@ -1,13 +1,34 @@
-function Particle(){
-	this.pos = createVector(random(200),random(200));
+function Particle(width, height){
+	this.pos = createVector(random(width),random(height));
 	this.vel = createVector(0,0);
 	//this.vel = p5.Vector.random2D();
 	this.acc = createVector(0,0);
-	this.maxSpeed = 1.5;
+	this.maxSpeed = 2;
 
 	this.colors = color(255, 0, 0);
 
 	this.prevPos = this.pos.copy();
+
+	this.follow = function(vectors, cols, scl) {
+		var x = floor(this.pos.x/scl);
+		var y = floor(this.pos.y/scl);
+		var index = x + y * cols;
+		this.applyForce(vectors[index]);
+	};
+
+	this.attracted = function(target) {
+		var force = p5.Vector.sub(target, this.pos);
+		var dsquared = force.magSq();
+		dsquared = constrain(dsquared, 25, 500);
+		var G = 30;
+		var strengh = G/dsquared;
+		force.setMag(strengh);
+		this.applyForce(force);
+	};
+
+	this.applyForce = function(force) {
+		this.acc.add(force);
+	};
 
 	this.update = function() {
 		this.vel.add(this.acc);
@@ -19,17 +40,6 @@ function Particle(){
 	this.updatePrevious = function() {
 		this.prevPos.x = this.pos.x;
 		this.prevPos.y = this.pos.y;
-	};
-
-	this.applyForce = function(force) {
-		this.acc.add(force);
-	};
-
-	this.follow = function(vectors, cols, scl) {
-		var x = floor(this.pos.x/scl);
-		var y = floor(this.pos.y/scl);
-		var index = x + y * cols;
-		this.applyForce(vectors[index]);
 	};
 
 	this.show = function() {
