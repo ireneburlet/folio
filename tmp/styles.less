@@ -1,12 +1,19 @@
 /* VARIABLES */
 
 @pColor: #ff0000;
-@bgColor: rgb(25,25,25);
+@bgColor: rgb(15,15,15);
 @section1: rgb(50,10,60);
 @section2: rgb(0,120,120);
+@ownRed: #ff0000;
 
 @transition-speed: 1.2s;
 @slide-number: 4;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,900');
+
+font-family{
+
+}
+
 *{
 	margin: 0;
 	padding: 0;
@@ -23,7 +30,7 @@ html{
 
 body{
 	height: 100%;
-	font-family: Verdana, Geneva, sans-serif;
+	font-family: Montserrat;
 	font-size: 14px;
 	color: white;
 	font-variant: normal;
@@ -95,13 +102,17 @@ nav a{
 .i0{
 	bottom: 75vh;
 }
-
 .i1{
 	bottom: 50vh;
 }
-
 .i2{
 	bottom: 25vh;
+}
+
+.ctn-logo{
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 /*------------
@@ -118,29 +129,39 @@ section{
 	.ctn-content{
 		.fullProportion();
 		position: relative;
-		/*display: flex;
-		justify-content: center;
+		display: flex;
+		/*justify-content: center;
 		align-items: center;*/
 	}
 }
 
 h2{
-	font-size: 3em;
+	font-size: 4em;
+	font-weight: 900;
+	text-transform: uppercase;
 }
 
 /* Home - Section 4 */
 .s4{
+	* {
+		z-index: 1;
+	}
 	.ctn-sketch{
 		position: absolute;
 		overflow: hidden;
 		top: 50vh;
-		left: 20vw;
+		left: 10vw;
 		transform: translateY(-50%);
 		border-radius: 10vw;
 		background-color: white;
+		z-index: 0;
 	}
 	h2{
 		margin: auto;
+		mix-blend-mode: difference;
+		span{
+			color: @ownRed;
+		}
 	}
 }
 
