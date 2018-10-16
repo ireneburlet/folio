@@ -14,13 +14,12 @@ var distance;
 
 // set the canvas, the particles and the columns/rows
 function setup(){
-	background(255,255,255);
 	if( windowWidth < 600 ) {
  		width = windowWidth;
  		height = windowHeight;
 	}else{
 		width = round(windowWidth*division);
-		height = width;
+		height = windowHeight;
 	}
 	var canvas = createCanvas(width,height);
 	canvas.parent('sketch-holder');
@@ -43,7 +42,7 @@ function windowResized() {
 }
 
 function draw(){
-	background(255, 255, 255, 25);
+	background(15, 15, 15, 30);
 	var cols = floor(width/scl) + 1;
 	var rows = floor(height/scl) + 1;
 	var yoff = 0;
@@ -63,34 +62,17 @@ function draw(){
 		zoff += 0.001;
 	}
 
-	if(windowWidth > 600){
-		distance = dist(mouseX, mouseY, width/2, height/2);
-		if(distance < width/2){
-			mouse = createVector(mouseX, mouseY);
-		}
-	}
-	else{
-		if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height){
-			mouse = createVector(mouseX, mouseY);
-		}
+
+	if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height){
+		mouse = createVector(mouseX, mouseY);
 	}
 
 	for(var p = 0; p < nmbParticles; p++){
-		if(windowWidth > 600){
-			if(distance < width/2){
-				particles[p].attracted(mouse);
-			}
-			else{
-				particles[p].follow(flowfield, cols, scl);
-			}
+		if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height){
+			particles[p].attracted(mouse);
 		}
 		else{
-			if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height){
-				particles[p].attracted(mouse);
-			}
-			else{
-				particles[p].follow(flowfield, cols, scl);
-			}
+			particles[p].follow(flowfield, cols, scl);
 		}
 		particles[p].update();
 		particles[p].show();

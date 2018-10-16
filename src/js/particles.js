@@ -5,7 +5,7 @@ function Particle(width, height){
 	this.acc = createVector(0,0);
 	this.maxSpeed = 2;
 
-	this.colors = color(255, 0, 0);
+	this.colors = color(171, 0, 0);
 
 	this.prevPos = this.pos.copy();
 

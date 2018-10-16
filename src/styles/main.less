@@ -1,8 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,900');
+@import url('https://fonts.googleapis.com/css?family=Muli:600,900');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
 
-font-family{
-
-}
+/*font-face{
+	font-family: "renner";
+	src: url('./../assets/fonts/renner/renner-bold-web.eot') format('eot');
+	src: url('./../assets/fonts/renner/renner-bold-web.eot?#iefix') format('embedded-opentype'),
+			url('./../assets/fonts/renner/renner-bold-web.woff') format('woff'),
+			url('./../assets/fonts/renner/renner-bold-web.woff2') format('woff2'),
+			url('./../assets/fonts/renner/renner-bold-web.ttf') format('truetype');
+	font-weight: normal;
+    font-style: normal;
+}*/
 
 *{
 	margin: 0;
@@ -20,17 +28,56 @@ html{
 
 body{
 	height: 100%;
-	font-family: Montserrat;
+	font-family: Questrial;
 	font-size: 14px;
-	color: white;
-	font-variant: normal;
 	font-weight: 400;
-	background-color: @bgColor;
+	color: @ownBlack;
+	background-color: @ownBlack;
 }
 
-main{
+main, div.fullpage-container{
 	height: 100%;
 	position: relative;
+}
+
+/*---------------
+BACKGROUND
+---------------*/
+.background{
+	.fullProportion();
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -5;
+	display: flex;
+	flex-direction: row;
+	div{
+		flex: 1;
+		height: 100%;
+		background-color: white;
+		border-left: 1pt solid rgba(0,0,0,0.1);/*
+		border-right: 1pt solid rgba(0,0,0,0.1);*/
+	}
+	:first-child div{
+		border-left-width: 0;
+	};
+}
+
+/*----------------
+FIXED ELEMENTS
+----------------*/
+.ctn-absolute{
+	.fullProportion();
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -4;
+	.logo{
+		width: 100px;
+		height: 100px;
+		background-image: url('./../assets/svg/logo_svg.svg');
+		background-repeat: contain;
+	}
 }
 
 /*----------------
@@ -108,10 +155,8 @@ nav a{
 /*------------
 SECTIONS
 ------------*/
-
-.fullProportion{
-	width: 100%;
-	height: 100%;
+span{
+	color: @ownRed;
 }
 
 section{
@@ -125,32 +170,68 @@ section{
 	}
 }
 
-h2{
-	font-size: 4em;
-	font-weight: 900;
-	text-transform: uppercase;
-}
-
 /* Home - Section 4 */
 .s4{
 	* {
-		z-index: 1;
+		z-index: 10;
 	}
 	.ctn-sketch{
 		position: absolute;
 		overflow: hidden;
-		top: 50vh;
-		left: 10vw;
-		transform: translateY(-50%);
-		border-radius: 10vw;
+		top: 0vh;
+		left: 20vw;
+		/*transform: translateY(-50%);*/
 		background-color: white;
 		z-index: 0;
 	}
-	h2{
-		margin: auto;
-		mix-blend-mode: difference;
-		span{
-			color: @ownRed;
+	.ctn{
+		width: 60%;
+		height: 100%;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		h1{
+			font-family: Muli;
+			font-size: 4.5vw;
+			font-weight: 900;
+			margin-left: 2vw;
+		}
+		h2{
+			text-align: right;
+			font-weight: normal;
+		}
+		.ctn-buttons{
+			width: 20vw;
+			align-self: flex-end;
+			display: flex;
+			position: relative;
+			a{
+				flex: 1;
+				display: inline-block;
+				height: 40px;
+				font-family: Muli;
+				font-weight: 900;
+				border: 1px solid @ownBlack;
+				text-align: center;
+				text-decoration: none;
+				padding: 10px 0 10px 0;
+			}
+			.contact{
+				color: #fff;
+			}
+			.projects{
+				color: @ownBlack;
+			}
+			&::before{
+				content: '';
+				background: @ownBlack;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 50%;
+				bottom: 0;
+				z-index: -2;
+			}
 		}
 	}
 }
