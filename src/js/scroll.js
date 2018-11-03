@@ -60,7 +60,7 @@
 		scroll.offsetY -= scroll.windowHeight;
 		translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
 		$('.fullpage-container').css("transform", translation);
-		$('.i' + scroll.currentSlideNumber).removeClass("indicator");
+		$('.i' + scroll.currentSlideNumber).removeClass("active");
 		scroll.currentSlideNumber++;
 	};
 
@@ -69,7 +69,7 @@
 		translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
 		$('.fullpage-container').css("transform", translation);
 		scroll.currentSlideNumber--;
-		$('.i' + scroll.currentSlideNumber).addClass("indicator");
+		$('.i' + scroll.currentSlideNumber).addClass("active");
 	};
 	
 	scroll.handleClick = function(e){
