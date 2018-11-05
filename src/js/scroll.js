@@ -62,12 +62,14 @@
 		$('.fullpage-container').css("transform", translation);
 		$('.i' + scroll.currentSlideNumber).removeClass("active");
 		scroll.currentSlideNumber++;
+		$('.i' + scroll.currentSlideNumber).addClass("active");
 	};
 
 	scroll.previousSection = function() {
 		scroll.offsetY += scroll.windowHeight;
 		translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
 		$('.fullpage-container').css("transform", translation);
+		$('.i' + scroll.currentSlideNumber).removeClass("active");
 		scroll.currentSlideNumber--;
 		$('.i' + scroll.currentSlideNumber).addClass("active");
 	};
