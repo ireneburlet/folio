@@ -1,0 +1,109 @@
+/* Home - Section 4 */
+.s4{
+	* {
+		z-index: 10;
+	}
+	.ctn-sketch{
+		position: absolute;
+		overflow: hidden;
+		top: 0vh;
+		left: 20vw;
+		background-color: white;
+		z-index: 0;
+		/*shadow*/
+		-moz-box-shadow: -20px 20px 0px 0px #ab0000;
+		-webkit-box-shadow: -20px 20px 0px 0px #ab0000;
+		-o-box-shadow: -20px 20px 0px 0px #ab0000;
+		box-shadow: -20px 20px 0px 0px #ab0000;
+		filter:progid:DXImageTransform.Microsoft.Shadow(color=#ab0000, Direction=224, Strength=0);
+	}
+	.content{
+		width: 60%;
+		height: 100%;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		.ctn-text{
+			height: 50%;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			h1{
+				font-family: 'Poppins';
+				font-weight: @boldtxt;
+    			font-style: normal;
+				font-size: 4.7vw;
+				.creative{
+					color: white;
+				}
+			}
+			h2{
+				text-align: right;
+				font-weight: normal;
+				font-size: 2em;
+			}
+		}
+		.ctn-buttons{
+			margin: auto 0;
+			width: 20vw;
+			align-self: flex-end;
+			display: flex;
+			position: relative;
+			/*transform: translateX(50%);*/
+			a{
+				flex: 1;
+				display: inline-block;
+				height: 40px;
+				font-family: Poppins;
+				font-weight: @boldtxt;
+				font-size: 1.2em;
+				border: 1px solid @ownBlack;
+				text-align: center;
+				text-decoration: none;
+				padding: 8px 0 8px 0;
+				&:hover{
+					transition: color 0.5s ease;
+				}
+			}
+			.projects{
+				color: @ownBlack;
+				background-color: white;
+			}
+			.projects:hover{
+				color: white;
+				background-color: transparent;
+			}
+			&::before{
+				content: '';
+				background: @ownBlack;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 50%;
+				bottom: 0;
+				z-index: -2;
+			}
+			&:hover{
+				&::before{
+					left: 50%;
+					right: 0;
+					transition: left 0.5s ease, right 0.5s ease;
+				}
+				.contact{
+					color: @ownBlack;
+					transition: color 0.5s ease;
+				}
+			}
+			.contact{
+				color: #fff;
+				background-color: transparent;
+				transition: color 0.5s ease, background-color 0.5s ease;
+			}
+			.contact:hover{
+				color: @ownRed;
+				background-color: @ownBlack;
+				transition: color 0.5s ease, background-color 0.5s ease;
+			}
+		}
+	}
+}
