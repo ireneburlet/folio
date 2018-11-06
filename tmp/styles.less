@@ -68,6 +68,10 @@ span{
 	color: @ownRed;
 }
 
+a{
+	text-decoration: none;
+}
+
 /*---------------
 BACKGROUND
 ---------------*/
@@ -119,7 +123,6 @@ FIXED ELEMENTS
 		font-family: Poppins;
 		font-weight: 400;
 		font-style: italic;
-		text-decoration: none;
 		color: black;
 		opacity: 0.5;
 		font-size: 1.1em;
@@ -176,7 +179,6 @@ nav{
 		right: 0;
 		z-index: 4;
 		transition: opacity 0.3s ease, border-width 0.3s ease;
-		text-decoration: none;
 		color: @ownBlack;
 		text-align: right;
 		display: flex;
@@ -287,10 +289,27 @@ section{
     				filter: grayscale(100%) contrast(135%) brightness(85%);
     		transition: filter 0.3s ease;
 			/*transition: width 0.3s ease, height 0.3s ease;*/
+			div{
+				z-index: 15;
+				/*text-align: center;*/
+				margin: auto;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				*{
+					color: white;
+				}
+			}
 			&:hover{
 				cursor: cell;
 				-webkit-filter: grayscale(0) contrast(100%) brightness(100%); /* Safari 6.0 - 9.0 */
     					filter: grayscale(0) contrast(100%) brightness(100%);
+				div{
+					opacity: 1;
+					transition: opacity 0.3s ease;
+				}
 			}
 		}
 		.p1{
@@ -323,10 +342,11 @@ section{
 		}
 		.ctn-buttons-slider{
 			opacity: 0;
-			transition: opacity 0.3s ease;
+			transition: opacity 0.45s ease;
 			position: absolute;
 			bottom: 0;
 			right: 0;
+			width: 100%;
 			display: flex;
 			justify-content: space-between;
 			z-index: 20;
@@ -335,13 +355,31 @@ section{
 		  			transform: translateY(50%);
 			padding: 0 30px;
 			button{
-				color: @ownBlack;
+				color: white;
 				border: none;
 				background-color: transparent;
 				font-family: "Poppins";
 				font-weight: 900;
 				&:hover{
 					cursor: pointer;
+				}
+			}
+			.ctn-lines{
+				margin: auto 0;
+				display: flex;
+				align-items: center;
+				.line{
+					height: 100%;
+					width: 30px;
+					border-bottom: 4px solid white;
+					opacity: 0.4;
+					padding: ;
+					&:hover{
+						opacity: 1;
+					}
+				}
+				.active{
+					opacity: 1;
 				}
 			}
 		}
