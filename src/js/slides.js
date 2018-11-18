@@ -101,7 +101,7 @@
 				slider.nextSlide();
 			}
 		}
-		else if(indexLine < slider.slideIndex){
+		else{
 			for(i = slider.slideIndex; i > indexLine; i--){
 				console.log("previous");
 				slider.previousSlide();
@@ -113,10 +113,24 @@
 		slider.slides[slider.slideIndex].style.display = "block";
 	};
 
+	slider.hoverActiveProject = function(evt){
+		if(slider.nameSlider){
+			var offsetX = evt.offsetX;
+			var halfWidthImg = $(slider.nameSlider).width()/2;
+			if(offsetX > halfWidthImg){
+				$(".project:hover").css("cursor", "e-resize");
+			}
+			else{
+				$(".project:hover").css("cursor", "w-resize");
+			}	
+		}
+	};
+
 	/*--------------- Click slider div event listener -----------------*/
 	$('#projects').on("click", ".project", _.throttle(slider.open, 60)); // open slider listener
 	document.addEventListener('keydown', slider.changeSlide); // change slide with arrows
 	$('#projects').on("click", "#back-btn", _.throttle(slider.goBack, 60));
 	$('#projects').on("click", "#infos-btn", _.throttle(slider.displayInfos, 60));
 	$('#lines-slider').on("click", ".line", _.throttle(slider.chooseSlide, 60));
+	$('#projects').on("mousemove", ".project", _.throttle(slider.hoverActiveProject, 60));
 }());

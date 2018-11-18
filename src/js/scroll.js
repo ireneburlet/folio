@@ -92,5 +92,4 @@
 
 	/*--------------- Click nav event listener -----------------*/
 	$('#navigation').on("click", "a", _.throttle(scroll.handleClick, 60));
-
 }());
