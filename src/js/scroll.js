@@ -15,7 +15,7 @@
 
 	scroll.onScroll = function(evt){
 		if(isFirefox){
-			delta = -evt.detail * (-120);
+			delta = evt.detail * (-60);
 		}
 		else if(isIE){
 			delta = -evt.deltaY;

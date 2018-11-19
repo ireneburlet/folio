@@ -1,20 +1,23 @@
 (function() {
 	var slider = {};
 
-	slider.slideIndex = 0;
-	slider.slidenumber = 0;
-	slider.nameSlider = '';
-	slider.slides = [];
+	slider.slideIndex = 0;		// index of current image visible
+	slider.nameSlider = '';		// name of the current slider open
+	slider.slides = [];			// array of images of the current slider open
 
-	slider.open = function(evt){
+	// click on a project action
+	// if project is not active : open project
+	// else change the visible image
+	slider.open	 = function(evt){
 		var idSlider = '#project-' + evt.currentTarget.dataset.slidenmb;
 		var i;
 		if(!$(idSlider).hasClass('active')){
-			slider.nameSlider = idSlider;			// keep the name of the slider
-			slider.slidenumber = evt.currentTarget.dataset.slidenmb;
+			slider.nameSlider = idSlider;			// keep the html id of the slider
 			$(idSlider).addClass("active");
+			$('.ctn-buttons-slider').css("display", "flex");
 			$('.ctn-buttons-slider').css("opacity", "1");
-			slider.slides = $(idSlider).children('.img-project');
+			slider.slides = $(idSlider).children('.img-project');	// store the images of the slider
+			// add the buttons to navigate between images
 			for(i = 0; i < slider.slides.length; i++){
 				if(i === 0){
 					$('#lines-slider').append('<div class="line line-active" data-indexline="' + i +'"></div>');	
@@ -29,6 +32,7 @@
 		}
 	};
 
+	// change img of the slider
 	slider.changeSlide = function(event){
 		if($(slider.nameSlider).hasClass('active')){
 			var offsetX = 0;
@@ -43,10 +47,7 @@
 			else if(event.key === "ArrowLeft" || (isClick && offsetX < halfWidthImg)){
 				slider.previousSlide();
 			}
-			slider.slides.forEach(function(item) {
-				item.style.display = "none";
-			});
-			slider.slides[slider.slideIndex].style.display = "block";
+			slider.displayImage();
 		}
 	};
 
@@ -71,27 +72,36 @@
 		$('#lines-slider').children('div:nth-child('+ (slider.slideIndex + 1) + ')').addClass('line-active');
 	};
 
-	slider.displayInfos = function(evt){
+	slider.displayImage = function(){
+		slider.slides.forEach(function(item) {
+				item.style.display = "none";
+			});
+		slider.slides[slider.slideIndex].style.display = "block";
+	};
+
+	slider.displayInfos = function(){
 		if($(slider.nameSlider).children('div').hasClass('infoActive')){
 			$(slider.nameSlider).children('div').removeClass('infoActive');
+			$('#infos-btn').css("color", "white");
 		}
 		else{
 			$(slider.nameSlider).children('div').addClass('infoActive');
+			$('#infos-btn').css("color", "rgb(15,15,15)");
 		}
 	};
 
-	slider.goBack = function(evt){
+	// go to the first image of slider when leave the slider
+	slider.goFirstSlide = function(){
 		var i;
-		slider.slideIndex = 0;
-		for(i = 0; i < slider.slides.length; i++){
-			$('#lines-slider').children('div').remove();
+		if(slider.slideIndex){
+			for(i = 0; i < slider.slideIndex + 1; i++){
+				slider.previousSlide();
+			}
+			slider.displayImage();
 		}
-		slider.slides = null;
-		$(slider.nameSlider).removeClass("active");
-		slider.nameSlider = '';
-		$('.ctn-buttons-slider').css("opacity", "0");
 	};
 
+	// click on a line to change the slider
 	slider.chooseSlide = function(evt){
 		var indexLine = evt.currentTarget.dataset.indexline;
 		var i;
@@ -113,6 +123,7 @@
 		slider.slides[slider.slideIndex].style.display = "block";
 	};
 
+	// change the style of cursor on the hover of the project img (next or prev)
 	slider.hoverActiveProject = function(evt){
 		if(slider.nameSlider){
 			var offsetX = evt.offsetX;
@@ -124,6 +135,24 @@
 				$(".project:hover").css("cursor", "w-resize");
 			}	
 		}
+	};
+
+	// close the current slider
+	slider.goBack = function(evt){
+		var i;
+		$(slider.nameSlider).children('div').removeClass('infoActive');
+		$('#infos-btn').css("text-decoration", "none");
+		slider.goFirstSlide();
+		for(i = 0; i < slider.slides.length; i++){
+			$('#lines-slider').children('div').remove();
+		}
+		slider.slideIndex = 0;
+		slider.slides = null;
+		$(slider.nameSlider).removeClass("active");
+		slider.nameSlider = '';
+		$('.ctn-buttons-slider').css("opacity", "0");
+		$('.ctn-buttons-slider').css("display", "none");
+		$('.project:hover').css("cursor", "cell");
 	};
 
 	/*--------------- Click slider div event listener -----------------*/
