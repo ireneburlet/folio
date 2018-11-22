@@ -256,6 +256,151 @@ section{
 
 
 /* Projects - section 3*/
+.s2{
+	* {
+		z-index: 10;
+	}
+	.content{
+		width: 60%;
+		margin: auto;
+	}
+	h3{
+		font-family: Poppins;
+		font-weight: 700;
+		font-style: italic;
+		font-size: 3em;
+		&::before{
+			content:'';
+			animation: 4s infinite beforecontent;
+			animation-timing-function: ease-in-out;
+		}
+		&::after{
+			content:"_";
+			color: @ownRed;
+			opacity: 0;
+			animation: 4s infinite trait;
+		}
+	}
+	p{
+		font-size: 1.5em;
+		a{
+			font-style: italic;
+			color: @ownRed;
+			position: relative;
+			transition: color 0.2s ease;
+		}
+		a::before{
+			content:'';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 100%;
+			background-color: @ownRed;
+			z-index: -2;
+			transition: right 0.3s ease;
+		}
+		a:hover{
+			color: white;
+			transition: color 0.2s ease;
+		}
+		a:hover::before{
+			right: 0;
+			transition: right 0.3s ease;
+		}
+	}
+}
+
+@keyframes beforecontent{
+	0%{
+		content: 'c';
+	}
+	2%{
+		content: 'co';
+	}
+	4%{
+		content: 'con';
+	}
+	6%{
+		content: 'cons';
+	}
+	8%{
+		content: 'conso';
+	}
+	10%{
+		content: 'consol';
+	}
+	12%{
+		content: 'console';
+	}
+	14%{
+		content: 'console.';
+	}
+	16%{
+		content: 'console.l';
+	}
+	18%{
+		content: 'console.lo';
+	}
+	20%{
+		content: 'console.log';
+	}
+	22%{
+		content: 'console.log(';
+	}
+	24%{
+		content: 'console.log("';
+	}
+	26%{
+		content: 'console.log("H';
+	}
+	28%{
+		content: 'console.log("Hi';
+	}
+	30%{
+		content: 'console.log("Hi ';
+	}
+	32%{
+		content: 'console.log("Hi !';
+	}
+	34%{
+		content: 'console.log("Hi !"';
+	}
+	36%{
+		content: 'console.log("Hi !")';
+	}
+	100%{
+		content: 'console.log("Hi !")';	
+	}
+}
+
+@keyframes trait {
+	0%{
+		opacity: 0;
+	}
+	36%{
+		opacity: 0;
+	}
+	45%{
+		opacity: 1;
+	}
+	55%{
+		opacity: 0;
+	}
+	65%{
+		opacity: 1;
+	}
+	75%{
+		opacity: 0;
+	}
+	85%{
+		opacity: 1;
+	}
+	95%{
+		opacity: 0;
+	}
+}
+/* Projects - section 3*/
 .s3{
 	* {
 		z-index: 10;
