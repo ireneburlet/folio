@@ -12,16 +12,11 @@
 		flex-wrap: wrap;
 		margin: auto;
 		position: relative;
-		&::before{
-			content: '';
-			width: 100%;
-			height: 100%;
-			background-color: @ownRed;
-			position: absolute;
-			bottom: -20px;
-			left: -20px;
-			z-index: -10;
-		}
+		-moz-box-shadow: -20px 20px 0px 0px rgb(15,15,15);
+		-webkit-box-shadow: -20px 20px 0px 0px rgb(15,15,15);
+		-o-box-shadow: -20px 20px 0px 0px rgb(15,15,15);
+		box-shadow: -20px 20px 0px 0px rgb(15,15,15);
+		filter:progid:DXImageTransform.Microsoft.Shadow(color=rgb(15,15,15), Direction=224, Strength=0);
 		img{
 			object-fit: cover;
 			width: 100%;
@@ -36,7 +31,7 @@
 			img{
 				display: none;
 				-webkit-filter: grayscale(100%) contrast(135%) brightness(70%); /* Safari 6.0 - 9.0 */
-    				filter: grayscale(100%) contrast(135%) brightness(70%);
+    					filter: grayscale(100%) contrast(135%) brightness(70%);
     			transition: filter 0.3s ease;
 			}
 			img:first-child{
@@ -134,7 +129,7 @@
 				font-weight: 900;
 				&:hover{
 					cursor: pointer;
-					color: @ownBlack;
+					color: @ownRed;
 					transition: color 0.15s ease;
 				}
 			}
@@ -146,7 +141,7 @@
 					height: 100%;
 					width: 30px;
 					border-bottom: 4px solid white;
-					opacity: 0.4;
+					opacity: 0.2;
 					transition: opacity 0.3s ease;
 					&:hover{
 						opacity: 0.8;

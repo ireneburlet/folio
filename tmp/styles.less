@@ -89,10 +89,11 @@ BACKGROUND
 		height: 100%;
 		background-color: white;
 		border-left: 1pt solid rgba(0,0,0,0.1);
+		transition: background-color 1s ease-in, border-left-color 1s ease-in, transform 600ms ease;
 	}
 	:first-child div{
 		border-left-width: 0;
-	};
+	}
 }
 
 /*----------------
@@ -265,9 +266,10 @@ section{
 		margin: auto;
 	}
 	h3{
-		font-family: Poppins;
+		color: rgb(0,255,0);
+		font-family: 'Roboto Mono';
 		font-weight: 700;
-		font-style: italic;
+		/*font-style: italic;*/
 		font-size: 3em;
 		&::before{
 			content:'';
@@ -282,6 +284,7 @@ section{
 		}
 	}
 	p{
+		color: rgb(0,255,0);
 		font-size: 1.5em;
 		a{
 			font-style: italic;
@@ -307,6 +310,20 @@ section{
 		a:hover::before{
 			right: 0;
 			transition: right 0.3s ease;
+		}
+		span{
+			font-style: italic;
+			color: rgb(0,255,0);
+		}
+	}
+	.content p:last-child{
+		font-family: "Roboto Mono";
+		text-align: right;
+		span{
+			font-family: "Roboto Mono";
+			color: rgb(15,15,15);
+			font-style: normal;
+			background-color: rgb(0,255,0);
 		}
 	}
 }
@@ -414,16 +431,11 @@ section{
 		flex-wrap: wrap;
 		margin: auto;
 		position: relative;
-		&::before{
-			content: '';
-			width: 100%;
-			height: 100%;
-			background-color: @ownRed;
-			position: absolute;
-			bottom: -20px;
-			left: -20px;
-			z-index: -10;
-		}
+		-moz-box-shadow: -20px 20px 0px 0px rgb(15,15,15);
+		-webkit-box-shadow: -20px 20px 0px 0px rgb(15,15,15);
+		-o-box-shadow: -20px 20px 0px 0px rgb(15,15,15);
+		box-shadow: -20px 20px 0px 0px rgb(15,15,15);
+		filter:progid:DXImageTransform.Microsoft.Shadow(color=rgb(15,15,15), Direction=224, Strength=0);
 		img{
 			object-fit: cover;
 			width: 100%;
@@ -438,7 +450,7 @@ section{
 			img{
 				display: none;
 				-webkit-filter: grayscale(100%) contrast(135%) brightness(70%); /* Safari 6.0 - 9.0 */
-    				filter: grayscale(100%) contrast(135%) brightness(70%);
+    					filter: grayscale(100%) contrast(135%) brightness(70%);
     			transition: filter 0.3s ease;
 			}
 			img:first-child{
@@ -536,7 +548,7 @@ section{
 				font-weight: 900;
 				&:hover{
 					cursor: pointer;
-					color: @ownBlack;
+					color: @ownRed;
 					transition: color 0.15s ease;
 				}
 			}
@@ -548,7 +560,7 @@ section{
 					height: 100%;
 					width: 30px;
 					border-bottom: 4px solid white;
-					opacity: 0.4;
+					opacity: 0.2;
 					transition: opacity 0.3s ease;
 					&:hover{
 						opacity: 0.8;

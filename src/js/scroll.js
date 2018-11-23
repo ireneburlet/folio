@@ -19,30 +19,47 @@
 		}
 		else if(isIE){
 			delta = -evt.deltaY;
+			sign = -1;
 		}
 		else{
 			delta = evt.wheelDelta;
+			sign = 1;
 		}
+
+		var sign = (delta > 0) ? 1 : -1;
+		var k = 2;
+		$('.background').children('div').forEach(function(child){
+			child.style.transform = "translateY(" + sign*30*k + "px)";
+			k-=0.4;
+		});
 
 		if(scroll.ticking != true){
 			var trans = 0;
 			if(-delta >= scroll.scrollSensitivity){
+				$('.background').children('div').forEach(function(child){
+					child.style.transform = "translateY(" + 0 + "px)";
+				});
 				//up scroll
 				scroll.ticking = true;
-				if(scroll.currentSlideNumber !== scroll.totalSlideNumber - 1){
-					scroll.nextSection();
-				}
+				scroll.nextSection();
 				scroll.slideDurationTimeout(scroll.slideDuration);
 			}
 			if(delta >= scroll.scrollSensitivity) {
+				$('.background').children('div').forEach(function(child){
+					child.style.transform = "translateY(" + 0 + "px)";
+				});
 				//down scroll
 				scroll.ticking = true;
-				if(scroll.currentSlideNumber !== 0) {
-					scroll.previousSection();
-				}
+				scroll.previousSection();
 				scroll.slideDurationTimeout(scroll.slideDuration);
 			}
 		}
+
+		setTimeout(function(){
+			$('.background').children('div').forEach(function(child){
+				child.style.transform = "translateY(" + 0 + "px)";
+			}); 
+		}, 600);
 	};
 
 	scroll.slideDurationTimeout = function (slideDuration){
@@ -51,27 +68,29 @@
 		}, slideDuration);
 	};
 
-	/*---------- Scroll Event Listener -------------*/
-	var mouseWheelEvent = isFirefox ? 'DOMMouseScroll' : 'wheel';
-	window.addEventListener(mouseWheelEvent, _.throttle(scroll.onScroll, 60), false);
-
 	/*---------- Slide Motion -------------*/
 	scroll.nextSection = function (){
-		scroll.offsetY -= scroll.windowHeight;
-		translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
-		$('.fullpage-container').css("transform", translation);
-		$('.i' + scroll.currentSlideNumber).removeClass("active");
-		scroll.currentSlideNumber++;
-		$('.i' + scroll.currentSlideNumber).addClass("active");
+		if(scroll.currentSlideNumber !== scroll.totalSlideNumber - 1){
+			scroll.offsetY -= scroll.windowHeight;
+			translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
+			$('.fullpage-container').css("transform", translation);
+			$('.i' + scroll.currentSlideNumber).removeClass("active");
+			scroll.currentSlideNumber++;
+			$('.i' + scroll.currentSlideNumber).addClass("active");
+			scroll.changeBackgroundStyle();
+		}
 	};
 
 	scroll.previousSection = function() {
-		scroll.offsetY += scroll.windowHeight;
-		translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
-		$('.fullpage-container').css("transform", translation);
-		$('.i' + scroll.currentSlideNumber).removeClass("active");
-		scroll.currentSlideNumber--;
-		$('.i' + scroll.currentSlideNumber).addClass("active");
+		if(scroll.currentSlideNumber !== 0) {
+			scroll.offsetY += scroll.windowHeight;
+			translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
+			$('.fullpage-container').css("transform", translation);
+			$('.i' + scroll.currentSlideNumber).removeClass("active");
+			scroll.currentSlideNumber--;
+			$('.i' + scroll.currentSlideNumber).addClass("active");
+			scroll.changeBackgroundStyle();
+		}
 	};
 	
 	scroll.handleClick = function(e){
@@ -90,6 +109,34 @@
 		}
 	};
 
+	scroll.handleArrow = function(e){
+		if(e.key === "ArrowDown"){
+			scroll.nextSection();
+		}
+		else if(e.key === "ArrowUp"){
+			scroll.previousSection();
+		}
+	};
+
+	scroll.changeBackgroundStyle = function(){
+		if(scroll.currentSlideNumber === 1){
+			$(".background").children("div").forEach(function(child){
+				child.style.backgroundColor = "rgb(15,15,15)";
+				child.style.borderLeftColor = "rgba(0,255,0,0.1)";
+			});
+		}
+		else{
+			$(".background").children("div").forEach(function(child){
+				child.style.backgroundColor = "white";
+				child.style.borderLeftColor = "rgba(0,0,0,0.1)";
+			});
+		}
+	};
+
+	/*---------- Scroll Event Listener -------------*/
+	var mouseWheelEvent = isFirefox ? 'DOMMouseScroll' : 'wheel';
+	window.addEventListener(mouseWheelEvent, _.throttle(scroll.onScroll, 60), false);
 	/*--------------- Click nav event listener -----------------*/
 	$('#navigation').on("click", "a", _.throttle(scroll.handleClick, 60));
+	$(document).on('keydown', scroll.handleArrow); // change slide with arrows
 }());

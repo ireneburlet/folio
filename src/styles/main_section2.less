@@ -8,9 +8,10 @@
 		margin: auto;
 	}
 	h3{
-		font-family: Poppins;
+		color: rgb(0,255,0);
+		font-family: 'Roboto Mono';
 		font-weight: 700;
-		font-style: italic;
+		/*font-style: italic;*/
 		font-size: 3em;
 		&::before{
 			content:'';
@@ -25,6 +26,7 @@
 		}
 	}
 	p{
+		color: rgb(0,255,0);
 		font-size: 1.5em;
 		a{
 			font-style: italic;
@@ -50,6 +52,20 @@
 		a:hover::before{
 			right: 0;
 			transition: right 0.3s ease;
+		}
+		span{
+			font-style: italic;
+			color: rgb(0,255,0);
+		}
+	}
+	.content p:last-child{
+		font-family: "Roboto Mono";
+		text-align: right;
+		span{
+			font-family: "Roboto Mono";
+			color: rgb(15,15,15);
+			font-style: normal;
+			background-color: rgb(0,255,0);
 		}
 	}
 }
