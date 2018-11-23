@@ -257,7 +257,52 @@ section{
 }
 
 
-/* Projects - section 3*/
+/* Contact - section 1*/
+.s1{
+	* {
+		z-index: 10;
+	}
+	form{
+		width: 60%;
+		margin: auto;
+		h2{
+			border-bottom: solid 4px @ownRed;
+			text-align: right;
+			span{
+				font-style: italic;
+			}
+		}
+		div{
+			width: 40vw;
+			*{
+				display: block;
+			}
+			label{
+				margin-bottom: 5px;
+				font-family: 'Poppins';
+				font-weight: @boldtxt;
+			}
+			input, textarea{
+				width: 50%;
+				outline: none;
+				border: solid 1px rgb(171,171,171);
+				margin-bottom: 15px;
+				font-family: 'Questrial';
+				font-size: 1em;
+				padding-top: 5px;
+				&:focus{
+					border-bottom-color: @ownBlack;
+					border-bottom-width: 4px;
+				}
+			}
+			textarea{
+				width: 100%;
+				resize: vertical;
+			}
+		}
+	}
+}
+/* About me - section 2*/
 .s2{
 	* {
 		z-index: 10;
@@ -306,11 +351,9 @@ section{
 		}
 		a:hover{
 			color: white;
-			transition: color 0.2s ease;
 		}
 		a:hover::before{
 			right: 0;
-			transition: right 0.3s ease;
 		}
 		span{
 			font-style: italic;
@@ -495,7 +538,6 @@ section{
 					/*-webkit-transform: scale(1.1);*/ /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
 						/*-ms-transform: scale(1.1);*/ /* IE 9 */
 		  					/*transform: scale(1.1);*/
-		  			transition: filter 0.3s ease;
 				}
 			}
 		}
@@ -529,7 +571,6 @@ section{
 		}
 		.ctn-buttons-slider{
 			opacity: 0;
-			transition: opacity 0.45s ease;
 			position: absolute;
 			bottom: 0;
 			right: 0;
@@ -542,7 +583,7 @@ section{
 				-ms-transform: translateY(100%); /* IE 9 */
 		  			transform: translateY(100%);
 			padding: 0 30px;
-			transition: color 0.15s ease;
+			transition: opacity 0.45s ease, color 0.15s ease;
 			button{
 				color: white;
 				border: none;
@@ -552,7 +593,6 @@ section{
 				&:hover{
 					cursor: pointer;
 					color: @ownRed;
-					transition: color 0.15s ease;
 				}
 			}
 			.ctn-lines{
@@ -563,7 +603,6 @@ section{
 				.line{
 					height: 100%;
 					width: 30px;
-					/*border-bottom: 4px solid white;*/
 					position: relative;
 					&::before{
 						content:'';
@@ -579,7 +618,6 @@ section{
 					&:hover{
 						opacity: 0.8;
 						cursor: pointer;
-						transition: opacity 0.3s ease;
 					}
 				}
 				.line-active{
@@ -673,12 +711,12 @@ section{
 				right: 50%;
 				bottom: 0;
 				z-index: -2;
+				transition: left 0.5s ease, right 0.5s ease;
 			}
 			&:hover{
 				&::before{
 					left: 50%;
 					right: 0;
-					transition: left 0.5s ease, right 0.5s ease;
 				}
 				.contact{
 					color: @ownBlack;

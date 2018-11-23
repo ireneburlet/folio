@@ -14,7 +14,26 @@
 		<div id="fullpage" class="fullpage-container">
 			<section id="section1" class="section">
 				<div class="ctn-content s1">
-					<h2>Section 1</h2>
+					<form action="" class="ctn-form">
+						<h2>For a <span>tailor-made</span> project, send me a message !</h2>
+						<div>
+							<label for="name">Your name</label>
+							<input id="name" type="text" name="name" autofocus>
+						</div>
+						<div>
+							<label for="email">Email address*</label>
+							<input id="email" type="email" name="email" required>
+						</div>
+						<div>
+							<label for="object">Object</label>
+							<input id="object" type="text" name="object">
+						</div>
+						<div>
+							<label for="message">Your message*</label>
+							<textarea name="message" rows="10" required></textarea>
+						</div>
+						<button type="button">Send</button>
+					</form>
 				</div>
 			</section>
 			<section id="section2" class="section">
