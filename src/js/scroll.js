@@ -27,11 +27,13 @@
 		}
 
 		var sign = (delta > 0) ? 1 : -1;
-		var k = 2;
-		$('.background').children('div').forEach(function(child){
-			child.style.transform = "translateY(" + sign*30*k + "px)";
-			k-=0.4;
-		});
+		if(delta*sign > scroll.scrollSensitivity/2){
+			var k = 2;
+			$('.background').children('div').forEach(function(child){
+				child.style.transform = "translateY(" + sign*30*k + "px)";
+				k-=0.4;
+			});
+		}
 
 		if(scroll.ticking != true){
 			var trans = 0;
@@ -77,7 +79,7 @@
 			$('.i' + scroll.currentSlideNumber).removeClass("active");
 			scroll.currentSlideNumber++;
 			$('.i' + scroll.currentSlideNumber).addClass("active");
-			scroll.changeBackgroundStyle();
+			scroll.changeStyleAboutMe();
 		}
 	};
 
@@ -89,7 +91,7 @@
 			$('.i' + scroll.currentSlideNumber).removeClass("active");
 			scroll.currentSlideNumber--;
 			$('.i' + scroll.currentSlideNumber).addClass("active");
-			scroll.changeBackgroundStyle();
+			scroll.changeStyleAboutMe();
 		}
 	};
 	
@@ -118,18 +120,22 @@
 		}
 	};
 
-	scroll.changeBackgroundStyle = function(){
+	scroll.changeStyleAboutMe = function(){
 		if(scroll.currentSlideNumber === 1){
-			$(".background").children("div").forEach(function(child){
-				child.style.backgroundColor = "rgb(15,15,15)";
-				child.style.borderLeftColor = "rgba(0,255,0,0.1)";
-			});
+			$('.bgCol').css("background-color", "rgb(15,15,15)");
+			$('.bgCol').css("border-left-color", "rgba(0,255,0,0.1)");
+			$('.social-link').css("color", "rgba(0,255,0,0.5)");
+			$('.nav-number').css("color", "rgb(0,255,0)");
+			$('.section-name').css("color", "rgb(0,255,0)");
+			$('.anchor-section').css("border-right-color", "rgb(0,255,0)");
 		}
 		else{
-			$(".background").children("div").forEach(function(child){
-				child.style.backgroundColor = "white";
-				child.style.borderLeftColor = "rgba(0,0,0,0.1)";
-			});
+			$('.bgCol').css("background-color", "white");
+			$('.bgCol').css("border-left-color", "rgba(0,0,0,0.1)");
+			$('.social-link').css("color", "rgba(0,0,0,0.5)");
+			$('.nav-number').css("color", "rgb(15,15,15)");
+			$('.section-name').css("color", "rgb(15,15,15)");
+			$('.anchor-section').css("border-right-color", "rgb(15,15,15)");
 		}
 	};
 
@@ -139,4 +145,9 @@
 	/*--------------- Click nav event listener -----------------*/
 	$('#navigation').on("click", "a", _.throttle(scroll.handleClick, 60));
 	$(document).on('keydown', scroll.handleArrow); // change slide with arrows
+	// resize of the window
+	window.onresize = function(event){
+		scroll.windowHeight = $(window).height();
+		scroll.offsetY = -scroll.currentSlideNumber * $(window).height();
+	};
 }());

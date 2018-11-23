@@ -94,13 +94,6 @@ FIXED ELEMENTS
 	margin: 3.3vh 0 0 2.5vw;
 }
 
-.scroll-indicator{
-	position: absolute;
-	top: 3.3vh;
-	left: 50vw;
-	transform: translateX(-50%);	
-}
-
 .ctn-links{
 	position: absolute;
 	bottom: 0;
@@ -157,6 +150,13 @@ NAVIGATION
 	transition: transform @transition-speed ease-in;
 }
 
+.scroll-indicator{
+	position: absolute;
+	top: 3.3vh;
+	left: 50vw;
+	transform: translateX(-50%);	
+}
+
 nav{
 	position: absolute;
 	top: 0;
@@ -171,20 +171,21 @@ nav{
 		bottom: 0;
 		right: 0;
 		z-index: 4;
-		transition: opacity 0.3s ease, border-width 0.3s ease;
 		color: @ownBlack;
 		text-align: right;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		transition: opacity 0.3s ease, border-width 0.3s ease;
 	}
-
 	a:hover {
 		border-width: 4px;
 		opacity: 1;
 		transition: opacity 0.3s ease, border-width 0.3s ease;
 	}
-
+	.anchor-section{
+		transition: border-right-color 0.3s ease;
+	}
 	p{
 		font-family: Poppins;
 		font-weight: @boldtxt;
@@ -192,11 +193,12 @@ nav{
 		line-height: 1em;
 		transition: font-size 0.3s ease;
 	}
-
 	.nav-number{
 		font-size: 2em;
 	}
-
+	.nav-number, .section-name{
+		transition: color 0.3s ease;
+	}
 	.active{
 		opacity: 1;
 		border-width: 4px;
@@ -208,7 +210,6 @@ nav{
 			font-size: 3.5em;
 		}
 	}
-
 	.i0{
 		bottom: 75vh;
 	}
