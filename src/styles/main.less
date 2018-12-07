@@ -1,15 +1,41 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400i,700');
-@import url('https://fonts.googleapis.com/css?family=Questrial');
+font-face{
+	font-family: 'Inter UI';
+	src: url('./../assets/fonts/Inter_UI/Inter-UI-Black.otf') format('otf'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Black.woff') format('woff'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Black.woff2') format('woff2'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
 
 font-face{
-	font-family: 'renner';
-	src: url('./../assets/fonts/renner/renner-bold-web.eot') format('eot');
-	src: url('./../assets/fonts/renner/renner-bold-web.eot?#iefix') format('embedded-opentype'),
-			url('./../assets/fonts/renner/renner-bold-web.woff') format('woff'),
-			url('./../assets/fonts/renner/renner-bold-web.woff2') format('woff2'),
-			url('./../assets/fonts/renner/renner-bold-web.ttf') format('truetype');
-	font-weight: normal;
-    font-style: normal;
+	font-family: 'Inter UI';
+	src: url('./../assets/fonts/Inter_UI/Inter-UI-Medium.otf') format('otf'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Medium.woff') format('woff'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Medium.woff2') format('woff2'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Medium.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+font-face{
+	font-family: 'Inter UI';
+	src: url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.otf') format('otf'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.woff') format('woff'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.woff2') format('woff2'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.ttf') format('truetype');
+	font-weight: 600;
+	font-style: italic;
+}
+
+font-face{
+	font-family: 'Inter UI';
+	src: url('./../assets/fonts/Inter_UI/Inter-UI-Regular.otf') format('otf'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Regular.woff') format('woff'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Regular.woff2') format('woff2'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
 }
 
 *{
@@ -28,9 +54,8 @@ html{
 
 body{
 	height: 100%;
-	font-family: Questrial;
+	font-family: 'Inter UI';
 	font-size: 14px;
-	font-weight: @regular;
 	color: @ownBlack;
 	background-color: @ownBlack;
 }
@@ -43,9 +68,23 @@ main, div.fullpage-container{
 /*----------
 TEXT
 ----------*/
-
 p, h1, h2, h3, h4, span{
 	text-rendering: geometricPrecision;
+}
+
+p, a{
+	font-weight: 400;
+	font-style: normal;
+}
+
+h1{
+	font-weight: 900;
+	font-style: normal;
+}
+
+h2, h3, h4, h5, h6{
+	font-weight: 600;
+	font-style: normal;
 }
 
 span{
@@ -106,8 +145,7 @@ FIXED ELEMENTS
 	display: flex;
 	justify-content: space-between;
 	a{
-		font-family: Poppins;
-		font-weight: 400;
+		font-weight: 600;
 		font-style: italic;
 		color: black;
 		opacity: 0.5;
@@ -187,8 +225,8 @@ nav{
 		transition: border-right-color 0.3s ease;
 	}
 	p{
-		font-family: Poppins;
-		font-weight: @boldtxt;
+		font-weight: 900;
+		font-style: normal;
 		font-size: 1.5em;
 		line-height: 1em;
 		transition: font-size 0.3s ease;

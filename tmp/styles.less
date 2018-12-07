@@ -7,25 +7,51 @@
 @transition-speed: 1.2s;
 @slide-number: 4;
 
-@boldtxt: 700;
-@regular: 400;
+// @boldtxt: 700;
+// @regular: 400;
 
 .fullProportion{
 	width: 100%;
 	height: 100%;
 }
-@import url('https://fonts.googleapis.com/css?family=Poppins:400i,700');
-@import url('https://fonts.googleapis.com/css?family=Questrial');
+font-face{
+	font-family: 'Inter UI';
+	src: url('./../assets/fonts/Inter_UI/Inter-UI-Black.otf') format('otf'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Black.woff') format('woff'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Black.woff2') format('woff2'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
 
 font-face{
-	font-family: 'renner';
-	src: url('./../assets/fonts/renner/renner-bold-web.eot') format('eot');
-	src: url('./../assets/fonts/renner/renner-bold-web.eot?#iefix') format('embedded-opentype'),
-			url('./../assets/fonts/renner/renner-bold-web.woff') format('woff'),
-			url('./../assets/fonts/renner/renner-bold-web.woff2') format('woff2'),
-			url('./../assets/fonts/renner/renner-bold-web.ttf') format('truetype');
-	font-weight: normal;
-    font-style: normal;
+	font-family: 'Inter UI';
+	src: url('./../assets/fonts/Inter_UI/Inter-UI-Medium.otf') format('otf'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Medium.woff') format('woff'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Medium.woff2') format('woff2'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Medium.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+font-face{
+	font-family: 'Inter UI';
+	src: url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.otf') format('otf'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.woff') format('woff'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.woff2') format('woff2'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.ttf') format('truetype');
+	font-weight: 600;
+	font-style: italic;
+}
+
+font-face{
+	font-family: 'Inter UI';
+	src: url('./../assets/fonts/Inter_UI/Inter-UI-Regular.otf') format('otf'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Regular.woff') format('woff'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Regular.woff2') format('woff2'),
+		 url('./../assets/fonts/Inter_UI/Inter-UI-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
 }
 
 *{
@@ -44,9 +70,8 @@ html{
 
 body{
 	height: 100%;
-	font-family: Questrial;
+	font-family: 'Inter UI';
 	font-size: 14px;
-	font-weight: @regular;
 	color: @ownBlack;
 	background-color: @ownBlack;
 }
@@ -59,9 +84,23 @@ main, div.fullpage-container{
 /*----------
 TEXT
 ----------*/
-
 p, h1, h2, h3, h4, span{
 	text-rendering: geometricPrecision;
+}
+
+p, a{
+	font-weight: 400;
+	font-style: normal;
+}
+
+h1{
+	font-weight: 900;
+	font-style: normal;
+}
+
+h2, h3, h4, h5, h6{
+	font-weight: 600;
+	font-style: normal;
 }
 
 span{
@@ -122,8 +161,7 @@ FIXED ELEMENTS
 	display: flex;
 	justify-content: space-between;
 	a{
-		font-family: Poppins;
-		font-weight: 400;
+		font-weight: 600;
 		font-style: italic;
 		color: black;
 		opacity: 0.5;
@@ -203,8 +241,8 @@ nav{
 		transition: border-right-color 0.3s ease;
 	}
 	p{
-		font-family: Poppins;
-		font-weight: @boldtxt;
+		font-weight: 900;
+		font-style: normal;
 		font-size: 1.5em;
 		line-height: 1em;
 		transition: font-size 0.3s ease;
@@ -279,15 +317,12 @@ section{
 			}
 			label{
 				margin-bottom: 5px;
-				font-family: 'Poppins';
-				font-weight: @boldtxt;
 			}
 			input, textarea{
 				width: 50%;
 				outline: none;
 				border: solid 1px rgb(171,171,171);
 				margin-bottom: 15px;
-				font-family: 'Questrial';
 				font-size: 1em;
 				padding-top: 5px;
 				&:focus{
@@ -313,10 +348,10 @@ section{
 	}
 	h3{
 		color: rgb(0,255,0);
-		font-family: 'Roboto Mono';
-		font-weight: 700;
-		/*font-style: italic;*/
+		font-weight: 900;
+		font-style: normal;
 		font-size: 3em;
+		margin-bottom: 20px;
 		&::before{
 			content:'';
 			animation: 4s infinite beforecontent;
@@ -324,49 +359,54 @@ section{
 		}
 		&::after{
 			content:"_";
-			color: @ownRed;
+			color: white;
 			opacity: 0;
 			animation: 4s infinite trait;
 		}
 	}
 	p{
 		color: rgb(0,255,0);
-		font-size: 1.5em;
-		a{
+		font-size: 1.2em;
+		margin-bottom: 20px;
+		line-height: 25px;
+		a.link{
+			color: rgb(15,15,15);
+			font-weight: 600;
 			font-style: italic;
-			color: @ownRed;
-			position: relative;
-			transition: color 0.2s ease;
+			background-color: rgb(0,255,0);
+			// text-decoration: underline dashed;
+			//transition: color 0.2s ease;
 		}
-		a::before{
-			content:'';
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 100%;
-			background-color: @ownRed;
-			z-index: -2;
-			transition: right 0.3s ease;
-		}
-		a:hover{
-			color: white;
-		}
-		a:hover::before{
-			right: 0;
-		}
+		// a.link::before{
+		// 	content:'';
+		// 	position: absolute;
+		// 	top: 0;
+		// 	bottom: 0;
+		// 	left: 0;
+		// 	right: 100%;
+		// 	background-color: @ownRed;
+		// 	z-index: -2;
+		// 	transition: right 0.3s ease;
+		// }
+		// a.link:hover{
+		// 	color: white;
+		// 	text-decoration: underline solid;
+		// }
+		// a.link:hover::before{
+		// 	right: 0;
+		// }
 		span{
-			font-style: italic;
+			font-weight: 900;
+			font-style: normal;
 			color: rgb(0,255,0);
+			// text-decoration: underline dotted;
 		}
 	}
 	.content p:last-child{
-		font-family: "Roboto Mono";
-		text-align: right;
-		span{
-			font-family: "Roboto Mono";
+		a{
 			color: rgb(15,15,15);
-			font-style: normal;
+			font-weight: 600;
+			font-style: italic;
 			background-color: rgb(0,255,0);
 		}
 	}
@@ -513,18 +553,21 @@ section{
 				width: 100%;
 				height: 100%;
 				h2,h3{
-					font-family: Poppins;
-					font-weight: 900;
 					color: white;
+					font-weight: 900;
+					font-style: normal;
 					font-size: 2em;
+					margin-bottom: 5px;
 				}
 				h3{
-					font-weight: 400;
+					font-weight: 500;
 					font-style: italic;
-					font-size: 1em;
+					font-size: 1.5em;
+					margin-bottom: 20px;
 				}
 				p{
 					color: white;
+					line-height: 25px;
 				}
 			}
 			div.infoActive{
@@ -582,14 +625,14 @@ section{
 			-webkit-transform: translateY(100%); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
 				-ms-transform: translateY(100%); /* IE 9 */
 		  			transform: translateY(100%);
-			padding: 0 30px;
+			padding: 0 30px 0 0;
 			transition: opacity 0.45s ease, color 0.15s ease;
 			button{
 				color: white;
 				border: none;
 				background-color: transparent;
-				font-family: "Poppins";
 				font-weight: 900;
+				font-style: normal;
 				&:hover{
 					cursor: pointer;
 					color: @ownRed;
@@ -658,9 +701,6 @@ section{
 			flex-direction: column;
 			justify-content: flex-end;
 			h1{
-				font-family: 'Poppins';
-				font-weight: @boldtxt;
-    			font-style: normal;
 				font-size: 4.7vw;
 				.creative{
 					color: white;
@@ -669,7 +709,7 @@ section{
 			h2{
 				text-align: right;
 				font-weight: normal;
-				font-size: 2em;
+				font-size: 1.8em;
 			}
 		}
 		.ctn-buttons{
@@ -683,8 +723,7 @@ section{
 				flex: 1;
 				display: inline-block;
 				height: 40px;
-				font-family: Poppins;
-				font-weight: @boldtxt;
+				font-weight: 500;
 				font-size: 1.2em;
 				border: 1px solid @ownBlack;
 				text-align: center;
