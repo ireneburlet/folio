@@ -130,11 +130,11 @@
 			var offsetX = evt.offsetX;
 			var halfWidthImg = $(slider.nameSlider).width()/2;
 			if(offsetX > halfWidthImg){
-				$(".project:hover").css("cursor", "url('./../assets/svg/cursor_nxt.svg')", "e-resize");
+				$(".project:hover").css("cursor", "url('./../assets/svg/cursor_nxt.svg'), e-resize");
 			}
 			else{
-				$(".project:hover").css("cursor", "url('./../assets/svg/cursor_prv.svg')", "w-resize");
-			}	
+				$(".project:hover").css("cursor", "url('./../assets/svg/cursor_prv.svg'), w-resize");
+			}
 		}
 	};
 
@@ -153,7 +153,7 @@
 		slider.nameSlider = '';
 		$('.ctn-buttons-slider').css("opacity", "0");
 		$('.ctn-buttons-slider').css("display", "none");
-		$('.project:hover').css("cursor", "cell");
+		$('.project').css("cursor", "cell");
 	};
 
 	/*--------------- Click slider div event listener -----------------*/
