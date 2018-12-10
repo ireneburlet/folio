@@ -130,10 +130,10 @@
 			var offsetX = evt.offsetX;
 			var halfWidthImg = $(slider.nameSlider).width()/2;
 			if(offsetX > halfWidthImg){
-				$(".project:hover").css("cursor", "e-resize");
+				$(".project:hover").css("cursor", "url('./../assets/svg/cursor_nxt.svg')", "e-resize");
 			}
 			else{
-				$(".project:hover").css("cursor", "w-resize");
+				$(".project:hover").css("cursor", "url('./../assets/svg/cursor_prv.svg')", "w-resize");
 			}	
 		}
 	};
