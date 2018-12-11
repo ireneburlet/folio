@@ -35,7 +35,7 @@
 
 	// change img of the slider
 	slider.changeSlide = function(event){
-		if($(slider.nameSlider).hasClass('active')){
+		if($(slider.nameSlider).hasClass('active') && !$(slider.nameSlider).children('div').hasClass('infoActive')){
 			var offsetX = 0;
 			var halfWidthImg = $(slider.nameSlider).width()/2;
 			var isClick = (event.type === "click") ? true : false;

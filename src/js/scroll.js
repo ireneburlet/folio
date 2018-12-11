@@ -12,6 +12,7 @@
 	scroll.windowHeight = $(window).height();
 	scroll.offsetY = -scroll.currentSlideNumber * $(window).height();
 	scroll.heightIndicator = 0;
+	scroll.hasScroll = false;
 
 	scroll.onScroll = function(evt){
 		if(isFirefox){
@@ -79,7 +80,7 @@
 			$('.i' + scroll.currentSlideNumber).removeClass("active");
 			scroll.currentSlideNumber++;
 			$('.i' + scroll.currentSlideNumber).addClass("active");
-			scroll.changeStyleAboutMe();
+			scroll.changeStyle();
 		}
 	};
 
@@ -91,7 +92,10 @@
 			$('.i' + scroll.currentSlideNumber).removeClass("active");
 			scroll.currentSlideNumber--;
 			$('.i' + scroll.currentSlideNumber).addClass("active");
-			scroll.changeStyleAboutMe();
+			scroll.changeStyle();
+		}
+		if(!scroll.hasScroll){
+			$(".scroll-indicator").css("opacity", "0");
 		}
 	};
 	
@@ -120,7 +124,7 @@
 		}
 	};
 
-	scroll.changeStyleAboutMe = function(){
+	scroll.changeStyle = function(){
 		if(scroll.currentSlideNumber === 1){
 			$('.bgCol').css("background-color", "rgb(15,15,15)");
 			$('.bgCol').css("border-left-color", "rgba(0,255,0,0.1)");

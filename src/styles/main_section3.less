@@ -24,7 +24,7 @@
 		}
 		.project{
 			position: absolute;
-			background-color: @ownRed;
+			background-color: @ownBlack;
 			height: 50%;
 			overflow: hidden;
 			display: flex;
@@ -71,6 +71,9 @@
 			}
 			div.infoActive{
 				display: block;
+				&:hover{
+					cursor: default;
+				}
 			}
 			&:hover{
 				//cursor: url('./../assets/svg/cursor_nxt.svg'), e-resize;
