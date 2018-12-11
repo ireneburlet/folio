@@ -17,7 +17,7 @@
 		"duplicate:assets": "mkdir dist/assets && cp -a assets/* dist/assets",
 		"build": "npm run clean && npm run build:js && npm run build:css && npm run duplicate:assets",
 		"clean": "rm -rf dist/*",
-		"serve": "browser-sync start -s -f 'dist/css/styles.css' 'dist/css/*.css, dist/js/*.js' -b firefox --port 8080 -w",
+		"serve": "browser-sync start -s -f 'dist/css/styles.css' 'dist/css/*.css, dist/js/*.js' -b 'firefox' --port 8080 -w",
 		"watch:css": "onchange 'src/styles/*.less' -- npm run build:css",
 		"watch:js": "onchange 'src/js/*.js' -- npm run build:js",
 		"watch": "npm-run-all build -p serve watch:js watch:css"

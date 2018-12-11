@@ -1,11 +1,149 @@
 @media screen and (max-width: 600px) {
+	/* Main */
+	.background{
+		div{
+			display:none;
+		}
+	}
+	.background div:first-child{
+		display: inline;
+	}
+	nav{
+		display: none;
+	}
+	.ctn-links{
+		display: none;
+	}
+	section{
+		.content{
+			width: 100%;
+			padding: 0 20px;
+		}
+	}
+	section .responsive-section-name{
+		visibility: visible;
+		position: absolute;
+		bottom:2.5vh;
+		left:0;
+		z-index: 100;
+		h2, span{
+			display:inline;
+			font-weight: 900;
+			color:white;
+			font-size: 1.5em;
+		}
+		span{
+			display:inline-block;
+			color: white;
+			font-size: 2.5em;
+			-webkit-transform: rotateZ(-90deg) translate(-75%, 30%); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+				-ms-transform: rotateZ(-90deg) translate(-75%, 30%); /* IE 9 */
+					transform: rotateZ(-90deg) translate(-75%, 30%);
+			transform-origin: left top 0;
+			&::before{
+				content: ".";
+				color: @ownRed;
+			}
+		}
+	}
 	/* Home - Section 4 */
 	.s4{
 		.ctn-sketch{
 			left: 0vw;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			-o-box-shadow: none;
+			box-shadow: none;
+			filter:progid:DXImageTransform.Microsoft.Shadow(none);
 		}
-		h2{
-			
+		.content{
+			.ctn-text{
+				height: 55%;
+				h1, h2{
+					color: white;
+					width: 100%;
+					text-align: center;
+					font-size: 1.8em;
+				}
+				h1{
+					margin-bottom: 5vh;
+				}
+				h2{
+					font-size: 1.2em;
+				}
+			}
+			.ctn-buttons{
+				width: 70vw;
+				align-self: center;
+				a{
+					font-size: 1em;
+				}
+			}
+		}
+	}
+	.s3{
+		.ctn-projects{
+			-moz-box-shadow: -20px 0px 0px 0px rgb(15,15,15);
+			-webkit-box-shadow: -20px 0px 0px 0px rgb(15,15,15);
+			-o-box-shadow: -20px 0px 0px 0px rgb(15,15,15);
+			box-shadow: -20px 0px 0px 0px rgb(15,15,15);
+			filter:progid:DXImageTransform.Microsoft.Shadow(color=rgb(15,15,15), Direction=224, Strength=0);
+			.p1{
+				width: 40%;
+			}
+			.p2{
+				width: 60%;
+			}
+			.p3{
+				width: 100%;
+			}
+		}
+	}
+	/* About me - Section 2 */
+	.s2{
+		h3{
+			font-size: 1.2em;
+		}
+		p{
+			font-size: 0.9em;
+			line-height: 15px;
+		}
+	}
+	.s1{
+		form{
+			margin: auto;
+			justify-content: space-around;
+			h2{
+				display: none;
+				margin-bottom: 15px;
+			}
+			h3{
+				font-size: 1em;
+				width: 100%;
+			}
+			div div{
+				width: 100%;
+				div{
+					width: 70%;
+					margin-bottom:15px;
+				}
+			}
+			label{
+				margin: 0;
+				font-size: 0.9em;
+			}
+			input,textarea{
+				width: 100%;
+				font-size: 0.9em;
+			}
+			button{
+				width: 60%;
+				align-self: flex-end;
+			}
+		}
+		form > div:nth-child(2){
+			width: 100%;
+			margin-bottom: 15px;
 		}
 	}
 }

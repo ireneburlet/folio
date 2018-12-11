@@ -57,7 +57,7 @@ body{
 	font-family: 'Inter UI';
 	font-size: 14px;
 	color: @ownBlack;
-	background-color: @ownBlack;
+	background-color: white;
 }
 
 main, div.fullpage-container{
@@ -271,11 +271,19 @@ SECTIONS
 ------------*/
 
 section{
+	position: relative;
 	.fullProportion();
 	.ctn-content{
 		.fullProportion();
 		position: relative;
 		display: flex;
 	}
+	.content{
+		width: 60%;
+	}
+}
+
+section .responsive-section-name{
+	visibility: hidden;
 }
 
