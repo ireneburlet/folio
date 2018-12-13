@@ -20,31 +20,8 @@
 			padding: 0 20px;
 		}
 	}
-	section .responsive-section-name{
-		visibility: visible;
-		position: absolute;
-		bottom:2.5vh;
-		left:0;
-		z-index: 100;
-		h2, span{
-			display:inline;
-			font-weight: 900;
-			color:white;
-			font-size: 1.5em;
-		}
-		span{
-			display:inline-block;
-			color: white;
-			font-size: 2.5em;
-			-webkit-transform: rotateZ(-90deg) translate(-75%, 30%); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-				-ms-transform: rotateZ(-90deg) translate(-75%, 30%); /* IE 9 */
-					transform: rotateZ(-90deg) translate(-75%, 30%);
-			transform-origin: left top 0;
-			&::before{
-				content: ".";
-				color: @ownRed;
-			}
-		}
+	.wrapper-section-name{
+		display: inline;
 	}
 	/* Home - Section 4 */
 	.s4{
@@ -83,19 +60,30 @@
 	}
 	.s3{
 		.ctn-projects{
-			-moz-box-shadow: -20px 0px 0px 0px rgb(15,15,15);
-			-webkit-box-shadow: -20px 0px 0px 0px rgb(15,15,15);
-			-o-box-shadow: -20px 0px 0px 0px rgb(15,15,15);
-			box-shadow: -20px 0px 0px 0px rgb(15,15,15);
+			-moz-box-shadow: 0px 20px 0px 0px rgb(15,15,15);
+			-webkit-box-shadow: 0px 20px 0px 0px rgb(15,15,15);
+			-o-box-shadow: 0px 20px 0px 0px rgb(15,15,15);
+			box-shadow: 0px 20px 0px 0px rgb(15,15,15);
 			filter:progid:DXImageTransform.Microsoft.Shadow(color=rgb(15,15,15), Direction=224, Strength=0);
+			div.active{
+				img{
+					object-fit: contain;
+				}
+			}
 			.p1{
 				width: 40%;
+				img{
+					height: unset;
+				}
 			}
 			.p2{
 				width: 60%;
 			}
 			.p3{
 				width: 100%;
+			}
+			.ctn-buttons-slider{
+				padding: 0 20px;
 			}
 		}
 	}
@@ -124,7 +112,7 @@
 			div div{
 				width: 100%;
 				div{
-					width: 70%;
+					width: 100%;
 					margin-bottom:15px;
 				}
 			}

@@ -125,6 +125,35 @@
 	};
 
 	scroll.changeStyle = function(){
+		var cSlideNmb = "";
+		var cSectionName = "";
+		var cColor = "";
+		switch(scroll.currentSlideNumber){
+			case 0:
+				cSectionNmb = "04";
+				cSectionName = "Contact";
+				$("#responsive-section-name").addClass('blackName');
+				break;
+			case 1:
+				cSectionNmb = "03";
+				cSectionName = "About Me";
+				$("#responsive-section-name").removeClass('blackName');
+				break;
+			case 2:
+				cSectionNmb = "02";
+				cSectionName = "Projects";
+				$("#responsive-section-name").addClass('blackName');
+				break;
+			case 3:
+				cSectionNmb = "01";
+				cSectionName = "Home";
+				$("#responsive-section-name").removeClass('blackName');
+				break;
+			default:
+				break;
+		}
+		$("#responsive-section-name").children("span").html(cSectionNmb);
+		$("#responsive-section-name").children("h2").html(cSectionName);
 		if(scroll.currentSlideNumber === 1){
 			$('.bgCol').css("background-color", "rgb(15,15,15)");
 			$('.bgCol').css("border-left-color", "rgba(0,255,0,0.1)");

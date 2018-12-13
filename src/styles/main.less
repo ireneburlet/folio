@@ -283,7 +283,35 @@ section{
 	}
 }
 
-section .responsive-section-name{
-	visibility: hidden;
+.wrapper-section-name{
+	display: none;
+	position: absolute;
+		bottom:2.5vh;
+	left:0;
+	z-index: 20;
+	color:white;
+	transition: color 1s ease;
+	h2, span{
+		display:inline;
+		font-weight: 900;
+		font-size: 1.5em;
+	}
+	span{
+		display:inline-block;
+		font-size: 2.5em;
+		-webkit-transform: rotateZ(-90deg) translate(-70%, 35%); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+			-ms-transform: rotateZ(-90deg) translate(-70%, 35%); /* IE 9 */
+				transform: rotateZ(-90deg) translate(-70%, 35%);
+		transform-origin: left top 0;
+		&::before{
+			content: ".";
+			color: @ownRed;
+		}
+	}
+}
+
+.blackName{
+	color: @ownBlack;
+	transition: color 1s ease;
 }
 
