@@ -8,8 +8,66 @@
 	.background div:first-child{
 		display: inline;
 	}
+	.logo{
+		width:15vw;
+		height:15vw;
+		margin: 12px;
+	}
 	nav{
-		display: none;
+		background-color: @ownBlack;
+		margin: 2.5vh 2.5vh 0 0;
+		padding: 14px;
+		bottom: initial;
+		z-index: 100;
+		width: 15vw;
+		height: 15vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		div{
+			display: block;
+			background-image: url("./../assets/svg/burgermenu.svg");
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 20px;
+			height: 15px;
+			transition: transform 0.3s ease;
+		}
+		&:hover{
+			cursor: pointer;
+		}
+		ul{
+			display: none;
+			flex-direction: column;
+			li{
+				border: none;
+				height: auto;
+				align-items: flex-end;
+				margin-bottom: 25px;
+				a{
+					flex-direction: row-reverse;
+					align-items: flex-end;
+					color: white;
+				}
+			}
+		}
+	}
+	nav.active{
+		width: 100vw;
+		height: 100vh;
+		margin: 0px;
+		padding: 2.5vh;
+		align-items: flex-end;
+		justify-content: space-between;
+		div{
+			transform: rotateZ(90deg);
+			transform-origin: center;
+			margin: 14px;
+		}
+		ul{
+			display: flex;
+		}
 	}
 	.ctn-links{
 		display: none;
@@ -69,6 +127,7 @@
 				img{
 					object-fit: contain;
 				}
+				overflow: scroll;
 			}
 			.p1{
 				width: 40%;

@@ -117,6 +117,10 @@ BACKGROUND
 	:first-child div{
 		border-left-width: 0;
 	}
+	.blackBgdCol{
+		background-color: @ownBlack;
+		border-left-color: rgba(0,255,0,0.1);
+	}
 }
 
 /*----------------
@@ -147,7 +151,7 @@ FIXED ELEMENTS
 	a{
 		font-weight: 600;
 		font-style: italic;
-		color: black;
+		color: @ownBlack;
 		opacity: 0.5;
 		font-size: 1.1em;
 		position: relative;
@@ -175,6 +179,12 @@ FIXED ELEMENTS
 			}
 		}
 	}
+	.lime-social-link{
+		color: lime;
+		&::before{
+			background-color: white;
+		}
+	}
 }
 
 /*----------------
@@ -200,24 +210,33 @@ nav{
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	right: 34px;
+	right:0;
 	width: 20vw;
-	a {
-		position: absolute;
+	div{
+		display:none;
+	}
+	ul{
+		display: flex;
+		flex-direction: column;
+		padding-right: 3vw;
+	}
+	li{
 		height: 25vh;
 		border-right: 1px solid @ownBlack;
 		opacity: 0.2;
-		bottom: 0;
-		right: 0;
-		z-index: 4;
-		color: @ownBlack;
 		text-align: right;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		transition: opacity 0.3s ease, border-width 0.3s ease;
+		a{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			color: @ownBlack;
+		}
 	}
-	a:hover {
+	li:hover {
 		border-width: 4px;
 		opacity: 1;
 		transition: opacity 0.3s ease, border-width 0.3s ease;
@@ -225,7 +244,7 @@ nav{
 	.anchor-section{
 		transition: border-right-color 0.3s ease;
 	}
-	p{
+	p, h2{
 		font-weight: 900;
 		font-style: normal;
 		font-size: 1.5em;
@@ -241,7 +260,7 @@ nav{
 	.active{
 		opacity: 1;
 		border-width: 4px;
-		p{
+		h2{
 			font-size: 2.3em;
 			transition: font-size 0.3s ease;
 		}
@@ -249,14 +268,13 @@ nav{
 			font-size: 3.5em;
 		}
 	}
-	.i0{
-		bottom: 75vh;
+}
+.green-nav{
+	.nav-number, .section-name{
+		color: lime;
 	}
-	.i1{
-		bottom: 50vh;
-	}
-	.i2{
-		bottom: 25vh;
+	.anchor-section{
+		border-right-color: lime;
 	}
 }
 
@@ -286,7 +304,7 @@ section{
 .wrapper-section-name{
 	display: none;
 	position: absolute;
-		bottom:2.5vh;
+	bottom:3vh;
 	left:0;
 	z-index: 20;
 	color:white;
@@ -298,7 +316,7 @@ section{
 	}
 	span{
 		display:inline-block;
-		font-size: 2.5em;
+		font-size: 2.3em;
 		-webkit-transform: rotateZ(-90deg) translate(-70%, 35%); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
 			-ms-transform: rotateZ(-90deg) translate(-70%, 35%); /* IE 9 */
 				transform: rotateZ(-90deg) translate(-70%, 35%);
