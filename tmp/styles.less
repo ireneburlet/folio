@@ -153,6 +153,10 @@ FIXED ELEMENTS
 	margin: 3.3vh 0 0 2.5vw;
 }
 
+.logo-white{
+	background-image: url('./../assets/svg/logo_white.svg');
+}
+
 .ctn-links{
 	position: absolute;
 	bottom: 0;
@@ -448,6 +452,17 @@ section{
 	}
 	form > div:nth-child(2){
 		width: 60vw;
+	}
+	form > div:last-child{
+		padding: 15px;
+		color: white;
+		text-align: center;
+	}
+	.error{
+		background-color: @ownRed;
+	}
+	.success{
+		background-color: rgb(0, 225, 94);
 	}
 }
 /* About me - section 2*/

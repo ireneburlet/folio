@@ -14,7 +14,7 @@
 		<div id="fullpage" class="fullpage-container">
 			<section id="section1" class="section" name="contact">
 				<div class="ctn-content s1">
-					<form action="" class="content ctn-form">
+					<form id="ajax-contact" method="post" action="mailer.php" class="content ctn-form">
 						<div>
 							<h2>Contact</h2>
 							<h3>A project ? A question ? If you need informations, send me a message !</h3>
@@ -37,7 +37,8 @@
 								<textarea name="message" rows="5" required></textarea>
 							</div>
 						</div>
-						<button type="button">Send the message &#9993;</button>
+						<button type="submit">Send the message &#9993;</button>
+						<div id="form-messages"></div>
 					</form>
 				</div>
 			</section>
@@ -118,8 +119,8 @@
 							<h2>freelance developper<span>/</span>graphic artist<span>/</span>designer<span>_</span></h2>
 						</div>
 						<div class="ctn-buttons">
-							<a href="" class="contact">contact me</a>
-							<a href="" class="projects">my projects</a>
+							<a href="#contact" class="contact">contact me</a>
+							<a href="#myprojects" class="projects">my projects</a>
 						</div>
 					</div>
 				</div>

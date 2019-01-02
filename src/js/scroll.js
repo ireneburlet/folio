@@ -14,6 +14,10 @@
 	scroll.heightIndicator = 0;
 	scroll.hasScroll = false;
 
+	if($(window).width() < 600){
+		$('.logo').addClass('logo-white');
+	}
+
 	scroll.onScroll = function(evt){
 		if(isFirefox){
 			delta = evt.detail * (-60);
@@ -72,7 +76,7 @@
 	};
 
 	/*---------- Slide Motion -------------*/
-	scroll.nextSection = function (){
+	scroll.nextSection = function (){ 		// go DOWN
 		if(scroll.currentSlideNumber !== scroll.totalSlideNumber - 1){
 			scroll.offsetY -= scroll.windowHeight;
 			translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
@@ -84,7 +88,7 @@
 		}
 	};
 
-	scroll.previousSection = function() {
+	scroll.previousSection = function() {		// go UP
 		if(scroll.currentSlideNumber !== 0) {
 			scroll.offsetY += scroll.windowHeight;
 			translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
@@ -99,7 +103,7 @@
 		}
 	};
 	
-	scroll.handleClick = function(e){
+	scroll.handleClick = function(e){		//navigation with side menu
 		var clickedAnchor = e.currentTarget.dataset.anchor;
 		var cSlideNmb = scroll.currentSlideNumber;
 
@@ -115,7 +119,7 @@
 		}
 	};
 
-	scroll.handleArrow = function(e){
+	scroll.handleArrow = function(e){		// navigation with arrow keyboard
 		if(e.key === "ArrowDown"){
 			scroll.nextSection();
 		}
@@ -124,7 +128,7 @@
 		}
 	};
 
-	scroll.changeStyle = function(){
+	scroll.changeStyle = function(){	// change style of elements depending on the section
 		var cSlideNmb = "";
 		var cSectionName = "";
 		var cColor = "";
@@ -158,11 +162,18 @@
 			$('.bgCol').addClass('blackBgdCol');
 			$('.social-link').addClass("lime-social-link");
 			$('#navigation').addClass("green-nav");
+			$('.logo').addClass("logo-white");
 		}
 		else{
 			$('.bgCol').removeClass('blackBgdCol');
 			$('.social-link').removeClass("lime-social-link");
 			$('#navigation').removeClass("green-nav");
+			if($(window).width() < 600 && scroll.currentSlideNumber === 3){
+				$('.logo').addClass("logo-white");
+			}
+			else{
+				$('.logo').removeClass("logo-white");
+			}
 		}
 	};
 
@@ -177,12 +188,21 @@
 		}
 	};
 
+	scroll.goTo = function(nmb){
+		var i;
+		for(i = 0; i < nmb; i++){
+			scroll.previousSection();
+		}
+	};
+
 	/*---------- Scroll Event Listener -------------*/
 	var mouseWheelEvent = isFirefox ? 'DOMMouseScroll' : 'wheel';
 	window.addEventListener(mouseWheelEvent, _.throttle(scroll.onScroll, 60), false);
 	/*--------------- Click nav event listener -----------------*/
 	$('#navigation').on("click", "a", _.throttle(scroll.handleClick, 60));
 	$('#navigation').on("click", _.throttle(scroll.activeBurgerMenu, 60));
+	$('.ctn-buttons').on("click", '.contact', _.throttle(function() {scroll.goTo(3);}, 60));
+	$('.ctn-buttons').on("click", '.projects', _.throttle(function() {scroll.goTo(1);}, 60));
 	$(document).on('keydown', scroll.handleArrow); // change slide with arrows
 	// resize of the window
 	window.onresize = function(event){
