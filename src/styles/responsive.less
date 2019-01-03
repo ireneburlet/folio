@@ -1,4 +1,4 @@
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 620px) {
 	/* Main */
 	.background{
 		div{
@@ -45,11 +45,15 @@
 				height: auto;
 				align-items: flex-end;
 				margin-bottom: 25px;
+				opacity: 0.5;
 				a{
 					flex-direction: row-reverse;
 					align-items: flex-end;
 					color: white;
 				}
+			}
+			li:last-child{
+				margin-bottom: O;
 			}
 		}
 	}
@@ -71,6 +75,16 @@
 	}
 	.ctn-links{
 		display: none;
+	}
+	.ctn-links.active{
+		display: flex;
+		width: 80vh;
+		z-index: 150;
+		padding-top: 10px;
+		a{
+			color:white;
+			font-size: 1.3em;
+		}
 	}
 	section{
 		.content{

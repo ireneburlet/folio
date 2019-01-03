@@ -14,7 +14,7 @@
 	scroll.heightIndicator = 0;
 	scroll.hasScroll = false;
 
-	if($(window).width() < 600){
+	if($(window).width() < 620){
 		$('.logo').addClass('logo-white');
 	}
 
@@ -168,26 +168,40 @@
 			$('.bgCol').removeClass('blackBgdCol');
 			$('.social-link').removeClass("lime-social-link");
 			$('#navigation').removeClass("green-nav");
-			if($(window).width() < 600 && scroll.currentSlideNumber === 3){
+			if($(window).width() < 620 && scroll.currentSlideNumber === 3){
 				$('.logo').addClass("logo-white");
 			}
 			else{
 				$('.logo').removeClass("logo-white");
 			}
 		}
+		scroll.hideAndDisplayCanvas();
 	};
 
+	scroll.hideAndDisplayCanvas = function(){
+		if(scroll.currentSlideNumber === 3){
+			$('.ctn-sketch').removeClass('hidden');
+		}
+		else{
+			setTimeout(function(){$('.ctn-sketch').addClass('hidden');}, 1200);
+		}
+	};
+
+	// display menu div in responsive
 	scroll.activeBurgerMenu = function(){
-		if($(window).width() < 600){
+		if($(window).width() < 620){
 			if($('#navigation').hasClass('active')){
 				$('#navigation').removeClass('active');
+				$('.ctn-links').removeClass('active');
 			}
 			else{
 				$('#navigation').addClass('active');
+				$('.ctn-links').addClass('active');
 			}
 		}
 	};
 
+	// home buttons navigation (go to projects or )
 	scroll.goTo = function(nmb){
 		var i;
 		for(i = 0; i < nmb; i++){

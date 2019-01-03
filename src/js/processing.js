@@ -3,6 +3,7 @@ var particles = [];
 var nmbParticles = 50;
 var width = 0;
 var height = 0;
+var responsiveWidth = 620;
 //perlin noise
 var inc = 0.1;
 var scl = 10;
@@ -14,7 +15,7 @@ var distance;
 
 // set the canvas, the particles and the columns/rows
 function setup(){
-	if( windowWidth < 600 ) {
+	if( windowWidth < responsiveWidth ) {
  		width = windowWidth;
  		height = windowHeight;
 	}else{
@@ -32,7 +33,7 @@ function setup(){
 }
 
 function windowResized() {
-  	if( windowWidth < 600 ) {
+  	if( windowWidth < responsiveWidth ) {
  		width = windowWidth;
 	}else{
 		width = round(windowWidth*division);
@@ -62,13 +63,18 @@ function draw(){
 		zoff += 0.001;
 	}
 
-
-	if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height){
-		mouse = createVector(mouseX, mouseY);
+	if(windowWidth > responsiveWidth || mouseIsPressed){
+		if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height){
+			mouse = createVector(mouseX, mouseY);
+		}
 	}
 
 	for(var p = 0; p < nmbParticles; p++){
-		if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height){
+		var mouseOnCanvas = (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) ? true : false;
+		if(windowWidth > responsiveWidth && mouseOnCanvas){
+			particles[p].attracted(mouse);
+		}
+		else if(windowWidth < responsiveWidth && mouseIsPressed && mouseOnCanvas){
 			particles[p].attracted(mouse);
 		}
 		else{
