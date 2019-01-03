@@ -179,11 +179,12 @@
 	};
 
 	scroll.hideAndDisplayCanvas = function(){
+		console.log(scroll.currentSlideNumber);
 		if(scroll.currentSlideNumber === 3){
 			$('.ctn-sketch').removeClass('hidden');
 		}
-		else{
-			setTimeout(function(){$('.ctn-sketch').addClass('hidden');}, 1200);
+		else if(scroll.currentSlideNumber === 2){
+			setTimeout(function(){$('.ctn-sketch').addClass('hidden');}, 600);
 		}
 	};
 
