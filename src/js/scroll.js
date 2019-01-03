@@ -179,7 +179,6 @@
 	};
 
 	scroll.hideAndDisplayCanvas = function(){
-		console.log(scroll.currentSlideNumber);
 		if(scroll.currentSlideNumber === 3){
 			$('.ctn-sketch').removeClass('hidden');
 		}
