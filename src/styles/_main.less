@@ -77,6 +77,17 @@ main, div.fullpage-container{
 	position: relative;
 }
 
+#fullpage{
+	// -webkit-transform: translate3d(0, 0, 0); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+	// 	-ms-transform: translate3d(0, 0, 0); /* IE 9 */
+	// 	  	transform: translate3d(0, 0, 0);
+	-webkit-transition: -webkit-transform @transition-speed ease-in;
+	transition: -webkit-transform @transition-speed ease-in;
+	-o-transition: transform @transition-speed ease-in;
+	transition: transform @transition-speed ease-in;
+	transition: transform @transition-speed ease-in, -webkit-transform @transition-speed ease-in;
+}
+
 /*----------
 TEXT
 ----------*/
@@ -207,13 +218,6 @@ FIXED ELEMENTS
 NAVIGATION
 ----------------*/
 
-#fullpage{
-	-webkit-transform: translate3d(0px, -300vh, 0px); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-		-ms-transform: translate3d(0px, -300vh, 0px); /* IE 9 */
-		  	transform: translate3d(0px, -300vh, 0px);
-	transition: transform @transition-speed ease-in;
-}
-
 .scroll-indicator{
 	position: absolute;
 	top: 3.3vh;
@@ -321,18 +325,18 @@ section{
 	display: none;
 	position: absolute;
 	bottom:3vh;
-	left:0;
+	left:7px;
 	z-index: 20;
 	color:white;
 	transition: color 1s ease;
 	h2, span{
 		display:inline;
 		font-weight: 900;
-		font-size: 1.5em;
+		font-size: 1em;
 	}
 	span{
 		display:inline-block;
-		font-size: 2.3em;
+		font-size: 1.5em;
 		-webkit-transform: rotateZ(-90deg) translate(-70%, 35%); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
 			-ms-transform: rotateZ(-90deg) translate(-70%, 35%); /* IE 9 */
 				transform: rotateZ(-90deg) translate(-70%, 35%);

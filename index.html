@@ -12,51 +12,25 @@
 <body>
 	<main>
 		<div id="fullpage" class="fullpage-container">
-			<section id="contact" class="section" name="contact">
+			<section id="home" class="section">
 				<div class="ctn-content s1">
-					<form id="ajax-contact" method="post" action="mailer.php" class="content ctn-form">
-						<div>
-							<h2>Contact</h2>
-							<h3>A project ? A question ? If you need informations, send me a message !</h3>
-						</div>
-						<div>
-							<div>
-								<label for="name">Your name</label>
-								<div><p>&rsaquo;</p><input id="name" type="text" name="name" autofocus></div>
-							</div>
-							<div>
-								<label for="email">Email address*</label>
-								<div><p>&rsaquo;</p><input id="email" type="email" name="email" required></div>
-							</div>
-							<div>
-								<label for="object">Object*</label>
-								<div><p>&rsaquo;</p><input id="object" type="text" name="object" required></div>
-							</div>
-							<div>
-								<label for="message">Your message*</label>
-								<textarea name="message" rows="5" required></textarea>
-							</div>
-						</div>
-						<button type="submit">Send the message &#9993;</button>
-						<div id="form-messages"></div>
-					</form>
-				</div>
-			</section>
-			<section id="about-me" class="section" name="aboutme">
-				<div class="ctn-content s2">
+					<div id="sketch-holder" class="ctn-sketch">
+						<!-- processing sketch goes here -->
+					</div>
 					<div class="content">
-						<h3></h3>
-						<p>&rsaquo; <span>Hi</span>, I'm a freelance developper, webdesigner and graphic artist based in Montpellier.<br/>
-							&rsaquo; Freshly graduated from the engineer school IMAC, I do <span>conception</span>, <span>development</span> and <span>graphic stuff</span>. 
-							I am currently working with <a class="link" target="_blank" rel="noreferrer noopener" href="https://www.frontastic.net">Frontastic</a>, a studio in Paris. We create web solutions, and we would be more than pleased to help you bring your project to life. <br/>
-							&rsaquo; Whether it is a <span>website</span>, an <span>application</span>, a <span>web app</span>, or even a <span>concept</span> and you're not really sure of what it should be, contact me and we will discuss it !
-						</p>
-						<p>&rsaquo; Want to see my résumé ? &lsaquo; <a target="_blank" rel="noopener noreferrer" href="./assets/img/cv.pdf">Yes</a> &rsaquo;</p>
+						<div class="ctn-text">
+							<h1><span class="creative">creative</span> technolog<span>i</span>st</h1>
+							<h2>freelance developper<span>/</span>graphic artist<span>/</span>designer<span>_</span></h2>
+						</div>
+						<div class="ctn-buttons">
+							<a href="#contactme" class="contact">contact me</a>
+							<a href="#myprojects" class="projects">my projects</a>
+						</div>
 					</div>
 				</div>
 			</section>
-			<section id="myprojects" class="section" name="projects">
-				<div class="ctn-content s3">
+			<section id="my-projects" class="section">
+				<div class="ctn-content s2">
 					<div id="projects" class="content ctn-projects">
 						<div id="project-1" class="project p1" data-slidenmb="1">
 							<img class="img-project" src="./dist/assets/img/mr_poubelle/mr_poubelle_logo.jpg" alt="mr poubelle logo">
@@ -119,21 +93,47 @@
 					</div>
 				</div>
 			</section>
-			<section id="home" class="section" name="home">
-				<div class="ctn-content s4">
-					<div id="sketch-holder" class="ctn-sketch">
-						<!-- processing sketch goes here -->
-					</div>
+			<section id="about-me" class="section">
+				<div class="ctn-content s3">
 					<div class="content">
-						<div class="ctn-text">
-							<h1><span class="creative">creative</span> technolog<span>i</span>st</h1>
-							<h2>freelance developper<span>/</span>graphic artist<span>/</span>designer<span>_</span></h2>
-						</div>
-						<div class="ctn-buttons">
-							<a href="#contact" class="contact">contact me</a>
-							<a href="#myprojects" class="projects">my projects</a>
-						</div>
+						<h3></h3>
+						<p>&rsaquo; <span>Hi</span>, I'm a freelance developper, webdesigner and graphic artist based in Montpellier.<br/>
+							&rsaquo; Freshly graduated from the engineer school IMAC, I do <span>conception</span>, <span>development</span> and <span>graphic stuff</span>. 
+							I am currently working with <a class="link" target="_blank" rel="noreferrer noopener" href="https://www.frontastic.net">Frontastic</a>, a studio in Paris. We create web solutions, and we would be more than pleased to help you bring your project to life. <br/>
+							&rsaquo; Whether it is a <span>website</span>, an <span>application</span>, a <span>web app</span>, or even a <span>concept</span> and you're not really sure of what it should be, contact me and we will discuss it !
+						</p>
+						<p>&rsaquo; Want to see my résumé ? &lsaquo; <a target="_blank" rel="noopener noreferrer" href="./assets/img/cv.pdf">Yes</a> &rsaquo;</p>
 					</div>
+				</div>
+			</section>
+			<section id="contact" class="section">
+				<div class="ctn-content s4">
+					<form id="ajax-contact" method="post" action="mailer.php" class="content ctn-form">
+						<div>
+							<h2>Contact</h2>
+							<h3>A project ? A question ? If you need informations, send me a message !</h3>
+						</div>
+						<div>
+							<div>
+								<label for="name">Your name</label>
+								<div><p>&rsaquo;</p><input id="name" type="text" name="name"></div>
+							</div>
+							<div>
+								<label for="email">Email address*</label>
+								<div><p>&rsaquo;</p><input id="email" type="email" name="email" required></div>
+							</div>
+							<div>
+								<label for="object">Object*</label>
+								<div><p>&rsaquo;</p><input id="object" type="text" name="object" required></div>
+							</div>
+							<div>
+								<label for="message">Your message*</label>
+								<textarea name="message" rows="5" required></textarea>
+							</div>
+						</div>
+						<button type="submit">Send the message &#9993;</button>
+						<div id="form-messages"></div>
+					</form>
 				</div>
 			</section>
 		</div>
@@ -160,10 +160,10 @@
 		<nav id="navigation">
 			<div class="burger-button"></div>
 			<ul>
-				<li class="anchor-section i0"><a href="#contact" data-anchor="0" ><p class="nav-number"><span>.</span>04</p><h2 class="section-name">Contact</h2></a></li>
-				<li class="anchor-section i1"><a href="#aboutme" data-anchor="1" ><p class="nav-number"><span>.</span>03</p><h2 class="section-name">About me</h2></a></li>
-				<li class="anchor-section i2"><a href="#myprojects" data-anchor="2"><p class="nav-number"><span>.</span>02</p><h2 class="section-name">Projects</h2></a></li>
-				<li class="anchor-section i3 active"><a href="#home" data-anchor="3"><p class="nav-number"><span>.</span>01</p><h2 class="section-name">Home</h2></a></li>
+				<li class="anchor-section i0 active"><a href="#home" data-anchor="0" ><p class="nav-number"><span>.</span>01</p><h2 class="section-name">Home</h2></a></li>
+				<li class="anchor-section i1"><a href="#myprojects" data-anchor="1" ><p class="nav-number"><span>.</span>02</p><h2 class="section-name">Projects</h2></a></li>
+				<li class="anchor-section i2"><a href="#aboutme" data-anchor="2"><p class="nav-number"><span>.</span>03</p><h2 class="section-name">About Me</h2></a></li>
+				<li class="anchor-section i3"><a href="#contactme" data-anchor="3"><p class="nav-number"><span>.</span>04</p><h2 class="section-name">Contact</h2></a></li>
 			</ul>
 		</nav>
 

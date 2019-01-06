@@ -7,11 +7,10 @@
 	scroll.scrollSensitivity = 100;
 	scroll.ticking = false;
 	scroll.slideDuration = 600;
-	scroll.currentSlideNumber = 3;
+	scroll.currentSlideNumber = 0;
 	scroll.totalSlideNumber = $('.section').length;
 	scroll.windowHeight = $(window).height();
-	scroll.offsetY = -scroll.currentSlideNumber * $(window).height();
-	scroll.heightIndicator = 0;
+	scroll.offsetY = scroll.currentSlideNumber * $(window).height();
 	scroll.hasScroll = false;
 
 	if($(window).width() < 620){
@@ -41,12 +40,11 @@
 		}
 
 		if(scroll.ticking != true){
-			var trans = 0;
 			if(-delta >= scroll.scrollSensitivity){
 				$('.background').children('div').forEach(function(child){
 					child.style.transform = "translateY(" + 0 + "px)";
 				});
-				//up scroll
+				//down scroll
 				scroll.ticking = true;
 				scroll.nextSection();
 				scroll.slideDurationTimeout(scroll.slideDuration);
@@ -55,7 +53,7 @@
 				$('.background').children('div').forEach(function(child){
 					child.style.transform = "translateY(" + 0 + "px)";
 				});
-				//down scroll
+				//up scroll
 				scroll.ticking = true;
 				scroll.previousSection();
 				scroll.slideDurationTimeout(scroll.slideDuration);
@@ -86,6 +84,9 @@
 			$('.i' + scroll.currentSlideNumber).addClass("active");
 			scroll.changeStyle();
 		}
+		if(!scroll.hasScroll){
+			$(".scroll-indicator").css("opacity", "0");
+		}
 	};
 
 	scroll.previousSection = function() {		// go UP
@@ -97,9 +98,6 @@
 			scroll.currentSlideNumber--;
 			$('.i' + scroll.currentSlideNumber).addClass("active");
 			scroll.changeStyle();
-		}
-		if(!scroll.hasScroll){
-			$(".scroll-indicator").css("opacity", "0");
 		}
 	};
 	
@@ -134,55 +132,57 @@
 		var cColor = "";
 		switch(scroll.currentSlideNumber){
 			case 0:
-				cSectionNmb = "04";
-				cSectionName = "Contact";
-				$("#responsive-section-name").addClass('blackName');
-				break;
-			case 1:
-				cSectionNmb = "03";
-				cSectionName = "About Me";
+				cSectionNmb = "01";
+				cSectionName = "Home";
 				$("#responsive-section-name").removeClass('blackName');
 				break;
-			case 2:
+			case 1:
 				cSectionNmb = "02";
 				cSectionName = "Projects";
 				$("#responsive-section-name").addClass('blackName');
 				break;
-			case 3:
-				cSectionNmb = "01";
-				cSectionName = "Home";
+			case 2:
+				cSectionNmb = "03";
+				cSectionName = "About Me";
 				$("#responsive-section-name").removeClass('blackName');
+				break;
+			case 3:
+				cSectionNmb = "04";
+				cSectionName = "Contact";
+				$("#responsive-section-name").addClass('blackName');
 				break;
 			default:
 				break;
 		}
 		$("#responsive-section-name").children("span").html(cSectionNmb);
 		$("#responsive-section-name").children("h2").html(cSectionName);
-		if(scroll.currentSlideNumber === 1){
+		if(scroll.currentSlideNumber === 2){
 			$('.bgCol').addClass('blackBgdCol');
 			$('.social-link').addClass("lime-social-link");
-			$('#navigation').addClass("green-nav");
+			if($(window).width() > 620){
+				$('#navigation').addClass("green-nav");
+			}
 			$('.logo').addClass("logo-white");
 		}
 		else{
 			$('.bgCol').removeClass('blackBgdCol');
 			$('.social-link').removeClass("lime-social-link");
 			$('#navigation').removeClass("green-nav");
-			if($(window).width() < 620 && scroll.currentSlideNumber === 3){
+			if($(window).width() < 620 && scroll.currentSlideNumber === 0){
 				$('.logo').addClass("logo-white");
 			}
 			else{
 				$('.logo').removeClass("logo-white");
 			}
 		}
-		scroll.hideAndDisplayCanvas();
+		//scroll.hideAndDisplayCanvas();
 	};
 
 	scroll.hideAndDisplayCanvas = function(){
-		if(scroll.currentSlideNumber === 3){
+		if(scroll.currentSlideNumber === 0){
 			$('.ctn-sketch').removeClass('hidden');
 		}
-		else if(scroll.currentSlideNumber === 2){
+		else if(scroll.currentSlideNumber === 1){
 			setTimeout(function(){$('.ctn-sketch').addClass('hidden');}, 600);
 		}
 	};
@@ -205,7 +205,7 @@
 	scroll.goTo = function(nmb){
 		var i;
 		for(i = 0; i < nmb; i++){
-			scroll.previousSection();
+			scroll.nextSection();
 		}
 	};
 
@@ -221,6 +221,6 @@
 	// resize of the window
 	window.onresize = function(event){
 		scroll.windowHeight = $(window).height();
-		scroll.offsetY = -scroll.currentSlideNumber * $(window).height();
+		scroll.offsetY = scroll.currentSlideNumber * $(window).height();
 	};
 }());

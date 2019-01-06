@@ -71,6 +71,7 @@
 		}
 		ul{
 			display: flex;
+			max-width: 75%;
 		}
 	}
 	.ctn-links{
@@ -83,7 +84,13 @@
 		padding-top: 10px;
 		a{
 			color:white;
-			font-size: 1.3em;
+			font-size: 1.2em;
+			opacity: 1;
+			text-decoration: underline;
+			text-decoration-color: @ownRed;
+			&::before{
+				content: unset;
+			}
 		}
 	}
 	section{
@@ -95,8 +102,8 @@
 	.wrapper-section-name{
 		display: inline;
 	}
-	/* Home - Section 4 */
-	.s4{
+	/* Home - Section 1 */
+	.s1{
 		.ctn-sketch{
 			left: 0vw;
 			-moz-box-shadow: none;
@@ -130,7 +137,8 @@
 			}
 		}
 	}
-	.s3{
+	/* Projects - Section 2 */
+	.s2{
 		.ctn-projects{
 			-moz-box-shadow: 0px 20px 0px 0px rgb(15,15,15);
 			-webkit-box-shadow: 0px 20px 0px 0px rgb(15,15,15);
@@ -160,8 +168,8 @@
 			}
 		}
 	}
-	/* About me - Section 2 */
-	.s2{
+	/* About me - Section 3 */
+	.s3{
 		h3{
 			font-size: 1.2em;
 		}
@@ -170,7 +178,8 @@
 			line-height: 15px;
 		}
 	}
-	.s1{
+	/* Contact - Section 4 */
+	.s4{
 		form{
 			margin: auto;
 			justify-content: space-around;
@@ -181,6 +190,7 @@
 			h3{
 				font-size: 1em;
 				width: 100%;
+				margin-bottom: 10px;
 			}
 			div div{
 				width: 100%;
@@ -204,7 +214,6 @@
 		}
 		form > div:nth-child(2){
 			width: 100%;
-			margin-bottom: 15px;
 		}
 	}
 }
