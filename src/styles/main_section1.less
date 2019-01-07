@@ -2,6 +2,15 @@
 .s1{
 	* {
 		z-index: 10;
+		-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		 -khtml-user-select: none; /* Konqueror HTML */
+		   -moz-user-select: none; /* Firefox */
+			-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none;
+	}
+	.circle{
+		display:none;
 	}
 	.ctn-sketch{
 		display: inline;
@@ -52,7 +61,6 @@
 			align-self: flex-end;
 			display: flex;
 			position: relative;
-			/*transform: translateX(50%);*/
 			a{
 				flex: 1;
 				display: inline-block;

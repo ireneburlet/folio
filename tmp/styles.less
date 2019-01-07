@@ -385,6 +385,15 @@ section{
 .s1{
 	* {
 		z-index: 10;
+		-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		 -khtml-user-select: none; /* Konqueror HTML */
+		   -moz-user-select: none; /* Firefox */
+			-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none;
+	}
+	.circle{
+		display:none;
 	}
 	.ctn-sketch{
 		display: inline;
@@ -435,7 +444,6 @@ section{
 			align-self: flex-end;
 			display: flex;
 			position: relative;
-			/*transform: translateX(50%);*/
 			a{
 				flex: 1;
 				display: inline-block;
@@ -953,6 +961,9 @@ div.ctn-content.s4{
 		height:15vw;
 		margin: 20px;
 	}
+	.scroll-indicator{
+		display: none;
+	}
 	nav{
 		background-color: @ownBlack;
 		margin: 2.5vh 2.5vh 0 0;
@@ -980,7 +991,6 @@ div.ctn-content.s4{
 		ul{
 			display: none;
 			flex-direction: column;
-			//margin-bottom: 25vh;
 			li{
 				border: none;
 				height: auto;
@@ -1006,9 +1016,11 @@ div.ctn-content.s4{
 		align-items: flex-end;
 		justify-content: space-between;
 		div{
+			-webkit-transform: rotateZ(90deg);
+			-ms-transform: rotateZ(90deg);
 			transform: rotateZ(90deg);
 			transform-origin: center;
-			margin: 14px;
+			margin: 14px 16px;
 		}
 		ul{
 			display: flex;
@@ -1052,17 +1064,34 @@ div.ctn-content.s4{
 	}
 	/* Home - Section 1 */
 	.s1{
+		.circle{
+			display: inline;
+			position: absolute;
+			bottom: 10%;
+			left: 50vw;
+			transform: translateX(-50%);
+			div{
+				width: 35px;
+				height: 35px;
+				border-radius: 18px;
+				background-color: @ownRed;
+				margin: 15px auto;
+			}
+			span{
+				color: white;
+			}
+		}
 		.ctn-sketch{
 			left: 0vw;
-			-moz-box-shadow: none;
 			-webkit-box-shadow: none;
-			-o-box-shadow: none;
-			box-shadow: none;
+			   -moz-box-shadow: none;
+				 -o-box-shadow: none;
+					box-shadow: none;
 			filter:progid:DXImageTransform.Microsoft.Shadow(none);
 		}
 		.content{
 			.ctn-text{
-				height: 55%;
+				height: 45%;
 				h1, h2{
 					color: white;
 					width: 100%;
@@ -1079,6 +1108,7 @@ div.ctn-content.s4{
 			.ctn-buttons{
 				width: 70vw;
 				align-self: center;
+				margin: 25% 0 0 0;
 				a{
 					font-size: 1em;
 				}
