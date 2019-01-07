@@ -20,11 +20,15 @@
             data: formData,
             success: function() {
                 // Make sure that the formMessages div has the 'success' class.
-                $(formMessages).removeClass('error');
-                $(formMessages).addClass('success');
+                $('#form-messages').removeClass('error');
+                $('#form-messages').addClass('success');
     
                 // Set the message text.
-                $(formMessages).text("Message send");
+                $(formMessages).text("Message send !");
+                setTimeout(function() {
+                    $(formMessages).text("");
+                    $('#form-messages').removeClass('success');
+                }, 4000);
     
                 // Clear the form.
                 $('#name').val('');
@@ -33,11 +37,15 @@
             },
             error: function() {
                 // Make sure that the formMessages div has the 'error' class.
-                $(formMessages).removeClass('success');
-                $(formMessages).addClass('error');
+                $('#form-messages').removeClass('success');
+                $('#form-messages').addClass('error');
     
                 // Set the message text.
                 $(formMessages).text('Oops! An error occured and your message could not be sent.');
+                setTimeout(function() {
+                    $('#form-messages').text("");
+                    $('#form-messages').removeClass('error');
+                }, 4000);
             }
         });
     });

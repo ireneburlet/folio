@@ -221,6 +221,6 @@
 	// resize of the window
 	window.onresize = function(event){
 		scroll.windowHeight = $(window).height();
-		scroll.offsetY = scroll.currentSlideNumber * $(window).height();
+		scroll.offsetY = -scroll.currentSlideNumber * $(window).height();
 	};
 }());

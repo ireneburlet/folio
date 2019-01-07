@@ -172,7 +172,7 @@ FIXED ELEMENTS
       -ms-transform: rotateZ(-90deg) translate(5vh, 2.5vw); /* IE 9 */
           transform: rotateZ(-90deg) translate(5vh, 2.5vw);
 	transform-origin: left top 0;
-	width: 40vh;
+	width: 50vh;
 	display: flex;
 	justify-content: space-between;
 	a{
@@ -220,7 +220,7 @@ NAVIGATION
 
 .scroll-indicator{
 	position: absolute;
-	top: 3.3vh;
+	bottom: 3.3vh;
 	left: 50vw;
 	transform: translateX(-50%);
 	transition: opacity 0.3s ease;
@@ -288,6 +288,9 @@ nav{
 			font-size: 3.5em;
 		}
 	}
+	p.rights{
+		display: none;
+	}
 }
 .green-nav{
 	.nav-number, .section-name{
@@ -351,5 +354,13 @@ section{
 .blackName{
 	color: @ownBlack;
 	transition: color 1s ease;
+}
+
+.rights{
+	font-size: 0.9em;
+	font-style: italic;
+	margin: 0 auto;
+	opacity: 0.5;
+	padding: 10px 0;
 }
 
