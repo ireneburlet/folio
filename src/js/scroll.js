@@ -4,7 +4,7 @@
 
 	var scroll = {}; //concerning the up and down mouvement on window
 
-	scroll.scrollSensitivity = 100;
+	scroll.scrollSensitivity = 150;
 	scroll.ticking = false;
 	scroll.slideDuration = 600;
 	scroll.currentSlideNumber = 0;
