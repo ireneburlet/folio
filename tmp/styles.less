@@ -1076,9 +1076,18 @@ div.ctn-content.s4{
 				border-radius: 18px;
 				background-color: @ownRed;
 				margin: 15px auto;
+				animation: 1s grow infinite alternate linear;
 			}
 			span{
 				color: white;
+			}
+			@keyframes grow {
+				from{
+					transform: scale(0.75);
+				}
+				to{
+					transform: scale(1);
+				}
 			}
 		}
 		.ctn-sketch{
