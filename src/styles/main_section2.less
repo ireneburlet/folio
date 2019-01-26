@@ -18,28 +18,45 @@
 		-o-box-shadow: -20px 20px 0px 0px rgb(15,15,15);
 		box-shadow: -20px 20px 0px 0px rgb(15,15,15);
 		filter:progid:DXImageTransform.Microsoft.Shadow(color=rgb(15,15,15), Direction=224, Strength=0);
-		img{
-			object-fit: cover;
-			width: 100%;
-		}
 		.project{
 			position: absolute;
-			background-color: @ownBlack;
+			//background-color: @ownBlack;
 			height: 50%;
-			overflow: hidden;
-			display: flex;
+			//display: flex;
 			transition: width 0.3s ease, height 0.3s ease;
+			.slider{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background-color: @ownBlack;
+				position: relative; 
+				font-size: 0;
+				div{
+					position: absolute;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					width: 100%;
+					height: 100%;
+					display: flex;
+					transition: opacity 0.3s ease;
+					//transition: transform 0.3s ease;
+				}
+				div:first-child{
+					opacity: 1;
+				}
+				img{
+					object-fit: cover;
+					width: 100%;
+				}
+			}
 			img{
-				display: none;
 				-webkit-filter: grayscale(100%) contrast(135%) brightness(70%); /* Safari 6.0 - 9.0 */
     					filter: grayscale(100%) contrast(135%) brightness(70%);
     			transition: filter 0.3s ease;
 			}
-			img:first-child{
-				display: block;
-			}
-			div{
-				display: none;
+			.infos{
+				opacity: 0;
 				z-index: 30;
 				margin: auto;
 				position: absolute;
@@ -49,6 +66,7 @@
 				background-color: rgba(15,15,15,0.85);
 				width: 100%;
 				height: 100%;
+				transition: opacity 0.3s ease;
 				h2,h3{
 					color: white;
 					font-weight: 900;
@@ -69,20 +87,16 @@
 					line-height: 25px;
 				}
 			}
-			div.infoActive{
-				display: block;
+			.infos.infoActive{
+				opacity: 1;
 				&:hover{
 					cursor: default;
 				}
 			}
 			&:hover{
-				//cursor: url('./../assets/svg/cursor_nxt.svg'), e-resize;
 				img{
 					-webkit-filter: grayscale(0) contrast(100%) brightness(100%); /* Safari 6.0 - 9.0 */
-    					filter: grayscale(0) contrast(100%) brightness(100%);
-					/*-webkit-transform: scale(1.1);*/ /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-						/*-ms-transform: scale(1.1);*/ /* IE 9 */
-		  					/*transform: scale(1.1);*/
+    						filter: grayscale(0) contrast(100%) brightness(100%);
 				}
 			}
 		}
@@ -111,7 +125,7 @@
 			z-index: 12;
 			img{
 				-webkit-filter: grayscale(0) contrast(100%) brightness(100%); /* Safari 6.0 - 9.0 */
-    				filter: grayscale(0) contrast(100%) brightness(100%);
+    					filter: grayscale(0) contrast(100%) brightness(100%);
 			}
 		}
 		.ctn-buttons-slider{

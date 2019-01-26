@@ -1,10 +1,9 @@
 (function(){
 	var isFirefox = (/Firefox/i.test(navigator.userAgent));
 	var isIE = (/MSIE/i.test(navigator.userAgent)) || (/Trident.*rv\:11\./i.test(navigator.userAgent));
-
 	var scroll = {}; //concerning the up and down mouvement on window
 
-	scroll.scrollSensitivity = 150;
+	scroll.scrollSensitivity = 100;
 	scroll.ticking = false;
 	scroll.slideDuration = 600;
 	scroll.currentSlideNumber = 0;
@@ -17,9 +16,13 @@
 		$('.logo').addClass('logo-white');
 	}
 
-	scroll.onScroll = function(evt){
+	function getRandomInt(max) {
+		return Math.floor(Math.random() * max);
+	}
+
+	scroll.onScroll = function(evt){		// called in listener wheel
 		if(isFirefox){
-			delta = evt.detail * (-60);
+			delta = evt.detail * (-90);
 		}
 		else if(isIE){
 			delta = -evt.deltaY;
@@ -30,14 +33,13 @@
 			sign = 1;
 		}
 
-		var sign = (delta > 0) ? 1 : -1;
-		if(delta*sign > scroll.scrollSensitivity/2){
-			var k = 2;
-			$('.background').children('div').forEach(function(child){
-				child.style.transform = "translateY(" + sign*30*k + "px)";
-				k-=0.4;
-			});
-		}
+		// var sign = (delta > 0) ? 1 : -1;
+		// if(delta*sign > scroll.scrollSensitivity/2){
+		// 	$('.background').children('div').forEach(function(child){
+		// 		child.style.transform = "translateY(" + sign * randomInt[i] + "px)";
+		// 		i++;
+		// 	});
+		// }
 
 		if(scroll.ticking != true){
 			if(-delta >= scroll.scrollSensitivity){
@@ -77,7 +79,7 @@
 	scroll.nextSection = function (){ 		// go DOWN
 		if(scroll.currentSlideNumber !== scroll.totalSlideNumber - 1){
 			scroll.offsetY -= scroll.windowHeight;
-			translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
+			var translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
 			$('.fullpage-container').css("transform", translation);
 			$('.i' + scroll.currentSlideNumber).removeClass("active");
 			scroll.currentSlideNumber++;
@@ -92,7 +94,7 @@
 	scroll.previousSection = function() {		// go UP
 		if(scroll.currentSlideNumber !== 0) {
 			scroll.offsetY += scroll.windowHeight;
-			translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
+			var translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
 			$('.fullpage-container').css("transform", translation);
 			$('.i' + scroll.currentSlideNumber).removeClass("active");
 			scroll.currentSlideNumber--;
@@ -222,5 +224,9 @@
 	window.onresize = function(event){
 		scroll.windowHeight = $(window).height();
 		scroll.offsetY = -scroll.currentSlideNumber * $(window).height();
+		if(scroll.currentSlideNumber !== 0){
+			var translation = "translate3d(0px, " + scroll.offsetY + "px, 0px);";
+			$('.fullpage-container').css("transform", translation);
+		}
 	};
 }());

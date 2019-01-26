@@ -6,6 +6,7 @@
         $name = strip_tags(trim($_POST["name"]));
 				$name = str_replace(array("\r","\n"),array(" "," "),$name);
         $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+        $object = trim($_POST["object"]);
         $message = trim($_POST["message"]);
 
         // Check that data was sent to the mailer.
@@ -19,10 +20,10 @@
 
         // Set the recipient email address.
         // FIXME: Update this to your desired email address.
-        $recipient = "hello@example.com";
+        $recipient = "contact@ireneburlet.fr";
 
         // Set the email subject.
-        $subject = "New contact from $name";
+        $subject = "IB: $object";
 
         // Build the email content.
         $email_content = "Name: $name\n";

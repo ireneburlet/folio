@@ -16,7 +16,7 @@
 			$(idSlider).addClass("active");
 			$('.ctn-buttons-slider').css("display", "flex");
 			$('.ctn-buttons-slider').css("opacity", "1");
-			slider.slides = $(idSlider).children('.img-project');	// store the images of the slider
+			slider.slides = $(idSlider).children('.slider').children('div');	// store the images of the slider
 			$('#infos-btn').css("color", "white");
 			// add the buttons to navigate between images
 			for(i = 0; i < slider.slides.length; i++){
@@ -52,6 +52,25 @@
 		}
 	};
 
+	slider.displayImage = function(){
+		slider.slides.forEach(function(item) {
+			item.style.opacity = "0";
+		});
+		slider.slides[slider.slideIndex].style.opacity = "1";
+	};
+
+	slider.displayInfos = function(){
+		if($(slider.nameSlider).children('div').hasClass('infoActive')){
+			$(slider.nameSlider).children('div').removeClass('infoActive');
+			$('#infos-btn').css("color", "white");
+		}
+		else{
+			$(slider.nameSlider).children('div').addClass('infoActive');
+			$('#infos-btn').css("color", "rgb(171,0,0)");
+		}
+	};
+
+	// lines under slider
 	slider.nextSlide = function(){
 		$('#lines-slider').children('div:nth-child('+ (slider.slideIndex + 1) + ')').removeClass('line-active');
 		if(slider.slideIndex+1 === slider.slides.length){
@@ -71,35 +90,6 @@
 			slider.slideIndex--;
 		}
 		$('#lines-slider').children('div:nth-child('+ (slider.slideIndex + 1) + ')').addClass('line-active');
-	};
-
-	slider.displayImage = function(){
-		slider.slides.forEach(function(item) {
-				item.style.display = "none";
-			});
-		slider.slides[slider.slideIndex].style.display = "block";
-	};
-
-	slider.displayInfos = function(){
-		if($(slider.nameSlider).children('div').hasClass('infoActive')){
-			$(slider.nameSlider).children('div').removeClass('infoActive');
-			$('#infos-btn').css("color", "white");
-		}
-		else{
-			$(slider.nameSlider).children('div').addClass('infoActive');
-			$('#infos-btn').css("color", "rgb(171,0,0)");
-		}
-	};
-
-	// go to the first image of slider when leave the slider
-	slider.goFirstSlide = function(){
-		var i;
-		if(slider.slideIndex){
-			for(i = 0; i < slider.slideIndex + 1; i++){
-				slider.previousSlide();
-			}
-			slider.displayImage();
-		}
 	};
 
 	// click on a line to change the slider
@@ -154,6 +144,18 @@
 		$('.ctn-buttons-slider').css("opacity", "0");
 		$('.ctn-buttons-slider').css("display", "none");
 		$('.project').css("cursor", "cell");
+	};
+
+	// go to the first image of slider when leave the slider
+	slider.goFirstSlide = function(){
+		var i;
+		if(slider.slideIndex){
+			var index = slider.slideIndex;
+			for(i = 0; i < index; i++){
+				slider.previousSlide();
+			}
+			slider.displayImage();
+		}
 	};
 
 	/*--------------- Click slider div event listener -----------------*/

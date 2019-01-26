@@ -5,7 +5,6 @@ font-face{
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Black.otf') format('opentype'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Black.woff2') format('woff2'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Black.woff') format('woff'),
-		 url('./../assets/fonts/Inter_UI/inter-ui-black.svg#inter_uiblack') format('svg'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Black.ttf') format('truetype');
 	font-weight: 900;
 	font-style: normal;
@@ -18,7 +17,6 @@ font-face{
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Medium.otf') format('opentype'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Medium.woff2') format('woff2'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Medium.woff') format('woff'),
-		 url('./../assets/fonts/Inter_UI/inter-ui-medium.svg#inter_uiblack') format('svg'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Medium.ttf') format('truetype');
 	font-weight: 600;
 	font-style: normal;
@@ -31,7 +29,6 @@ font-face{
 		 url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.otf') format('opentype'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.woff2') format('woff2'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.woff') format('woff'),
-		 url('./../assets/fonts/Inter_UI/inter-ui-mediumitalic.svg#inter_uiblack') format('svg'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-MediumItalic.ttf') format('truetype');
 	font-weight: 600;
 	font-style: normal;
@@ -44,7 +41,6 @@ font-face{
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Regular.otf') format('opentype'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Regular.woff2') format('woff2'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Regular.woff') format('woff'),
-		 url('./../assets/fonts/Inter_UI/inter-ui-regular.svg#inter_uiblack') format('svg'),
 		 url('./../assets/fonts/Inter_UI/Inter-UI-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
@@ -57,7 +53,7 @@ font-face{
 }
 
 html, body {
-	overflow: hidden
+	overflow: hidden;
 }
 
 html{
@@ -69,7 +65,14 @@ body{
 	font-family: 'Inter UI', Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: @ownBlack;
-	background-color: white;
+	background-color: @ownBlack;
+}
+
+::selection {
+	background: @ownRed; /* WebKit/Blink Browsers */
+  }
+::-moz-selection {
+	background: @ownRed; /* Gecko Browsers */
 }
 
 main, div.fullpage-container{
@@ -134,7 +137,7 @@ BACKGROUND
 		flex: 1;
 		height: 100%;
 		background-color: white;
-		border-left: 1pt solid rgba(0,0,0,0.1);
+		border-left: 1pt solid rgba(200,200,200,0.1);
 		transition: background-color 1s ease-in, border-left-color 1s ease-in, transform 600ms ease;
 	}
 	:first-child div{
@@ -168,24 +171,25 @@ FIXED ELEMENTS
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	-webkit-transform: rotateZ(-90deg) translate(5vh, 2.5vw); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-      -ms-transform: rotateZ(-90deg) translate(5vh, 2.5vw); /* IE 9 */
-          transform: rotateZ(-90deg) translate(5vh, 2.5vw);
+	-webkit-transform: rotateZ(-90deg) translate(2.5vh, 2.5vw); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+      -ms-transform: rotateZ(-90deg) translate(2.5vh, 2.5vw); /* IE 9 */
+          transform: rotateZ(-90deg) translate(2.5vh, 2.5vw);
 	transform-origin: left top 0;
-	width: 50vh;
+	width: 60vh;
 	display: flex;
 	justify-content: space-between;
 	a{
 		font-weight: 600;
 		font-style: italic;
 		color: @ownBlack;
-		opacity: 0.5;
+		opacity: 0.3;
 		font-size: 1.1em;
 		position: relative;
+		letter-spacing: .2rem;
 		transition: opacity 0.5s ease;
 		&::before{
 			content: '';
-			height: 50%;
+			height: 30%;
 			position: absolute;
 			bottom: 0;
 			left: 0;
@@ -227,6 +231,12 @@ NAVIGATION
 }
 
 nav{
+	-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		 -khtml-user-select: none; /* Konqueror HTML */
+		   -moz-user-select: none; /* Firefox */
+			-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none;
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -248,7 +258,7 @@ nav{
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		transition: opacity 0.3s ease, border-width 0.3s ease;
+		transition: opacity 0.1s ease, border-width 0.1s ease;
 		a{
 			display: flex;
 			flex-direction: column;
@@ -259,7 +269,7 @@ nav{
 	li:hover {
 		border-width: 4px;
 		opacity: 1;
-		transition: opacity 0.3s ease, border-width 0.3s ease;
+		transition: opacity 0.1s ease, border-width 0.1s ease;
 	}
 	.anchor-section{
 		transition: border-right-color 0.3s ease;

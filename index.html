@@ -7,10 +7,10 @@
 	<meta name="description" content="Welcome. Freelance available for frontend development/web design/graphic art work.">
 	<meta name="author" content="Irene Burlet">
 	<meta name="keywords" content="Portfolio,Development,Freelance,Graphism,Frontend">
-	<!-- responsive -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no"">
+	<meta name="theme-color" content="#ab0000"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
 	<link rel="stylesheet" href="./dist/css/main.min.css">
-	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:700" rel="stylesheet">  -->
+	<link rel="manifest" href="./manifest.json">
 </head>
 <body>
 	<main>
@@ -37,9 +37,11 @@
 				<div class="ctn-content s2">
 					<div id="projects" class="content ctn-projects">
 						<div id="project-1" class="project p1" data-slidenmb="1">
-							<img class="img-project" src="./dist/assets/img/mr_poubelle/mr_poubelle_logo.jpg" alt="mr poubelle logo">
-							<img class="img-project" src="./dist/assets/img/mr_poubelle/mr_poubelle_application.jpg" alt="screens application">
-							<img class="img-project" src="./dist/assets/img/mr_poubelle/mr_poubelle_icones.jpg" alt="mr poubelle icones">
+							<div class="slider">
+								<div><img class="img-project" src="./dist/assets/img/mr_poubelle/mr_poubelle_logo.jpg" alt="mr poubelle logo"></div>
+								<div><img class="img-project" src="./dist/assets/img/mr_poubelle/mr_poubelle_application.jpg" alt="screens application"></div>
+								<div><img class="img-project" src="./dist/assets/img/mr_poubelle/mr_poubelle_icones.jpg" alt="mr poubelle icones"></div>
+							</div>
 							<div id="infos-mr-poubelle" class="infos">
 								<h2>Mr Poubelle - Student project</h2>
 								<h3>Design of services - Graphism - Webdesign</h3>
@@ -54,8 +56,10 @@
 							</div>
 						</div>
 						<div id="project-2" class="project p2" data-slidenmb="2">
-							<img class="img-project" src="./dist/assets/img/payot/payot_gemmes_logo.jpg" alt="payot gemmes">
-							<img class="img-project" src="./dist/assets/img/payot/payot_screens.jpg" alt="payot game screens">
+							<div class="slider">
+								<div><img class="img-project" src="./dist/assets/img/payot/payot_gemmes_logo.jpg" alt="payot gemmes"></div>
+								<div><img class="img-project" src="./dist/assets/img/payot/payot_screens.jpg" alt="payot game screens"></div>
+							</div>
 							<div id="infos-payot" class="infos">
 								<h2>The Game Payot - Online contest</h2>
 								<h3>Graphism - Website development</h3>
@@ -70,9 +74,12 @@
 							</div>
 						</div>
 						<div id="project-3" class="project p3" data-slidenmb="3">
-							<img class="img-project" src="./dist/assets/img/livria/full_accueil.jpg" alt="livria home">
-							<img class="img-project" src="./dist/assets/img/livria/intersticiel.jpg" alt="livria intersticiel">
-							<img src="./dist/assets/img/livria/affiches_livria.jpg" alt="" class="img-project">
+							<div class="slider">
+								<div><img class="img-project" src="./dist/assets/img/livria/full_accueil.jpg" alt="livria home"></div>
+								<div><img class="img-project" src="./dist/assets/img/livria/screens.jpg" alt="livria screens"></div>
+								<div><img class="img-project" src="./dist/assets/img/livria/intersticiel.jpg" alt="livria intersticiel"></div>
+								<div><img src="./dist/assets/img/livria/affiches_livria.jpg" alt="" class="img-project"></div>
+							</div>
 							<div id="infos-livria" class="infos">
 								<h2>Livria - Application</h2>
 								<h3>Development - Visual identity - Communication</h3>
@@ -125,6 +132,10 @@
 							<div>
 								<label for="email">Email address *</label>
 								<div><p>&rsaquo;</p><input id="email" type="email" name="email" required></div>
+							</div>
+							<div>
+								<label for="object">Object *</label>
+								<div><p>&rsaquo;</p><input id="object" name="object" required></div>
 							</div>
 							<div>
 								<label for="message">Your message *</label>
