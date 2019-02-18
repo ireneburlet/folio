@@ -214,6 +214,7 @@
 	/*---------- Scroll Event Listener -------------*/
 	var mouseWheelEvent = isFirefox ? 'DOMMouseScroll' : 'wheel';
 	window.addEventListener(mouseWheelEvent, _.throttle(scroll.onScroll, 60), false);
+	window.addEventListener(scroll, _.throttle(scroll.onScroll, 60), false);
 	/*--------------- Click nav event listener -----------------*/
 	$('#navigation').on("click", "a", _.throttle(scroll.handleClick, 60));
 	$('#navigation').on("click", _.throttle(scroll.activeBurgerMenu, 60));

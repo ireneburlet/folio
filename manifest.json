@@ -1,6 +1,15 @@
 {
-    "short_name": "IB",
-    "name": "Irene Burlet",
-    "background_color": "#0F0F0F",
-    "theme_color": "#ab0000"
+  "short_name": "IB",
+  "name": "Irene Burlet",
+  "background_color": "#0F0F0F",
+  "theme_color": "#ab0000",
+  "icons":[
+    {
+      "src":"/android-chrome-192x192.png",
+      "sizes":"192x192","type":"image/png"
+    },{
+      "src":"/android-chrome-512x512.png",
+      "sizes":"512x512","type":"image/png"
+    }],
+    "display":"standalone"
   }

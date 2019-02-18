@@ -57,6 +57,7 @@
 			}
 			.infos{
 				opacity: 0;
+				visibility: hidden;
 				z-index: 30;
 				margin: auto;
 				position: absolute;
@@ -66,7 +67,7 @@
 				background-color: rgba(15,15,15,0.85);
 				width: 100%;
 				height: 100%;
-				transition: opacity 0.3s ease;
+				transition: opacity 0.3s ease, visibility 0.3s ease;
 				h2,h3{
 					color: white;
 					font-weight: 900;
@@ -77,10 +78,11 @@
 				}
 				h3{
 					font-weight: 400;
-					font-style: normal;
-					font-size: 1.5em;
+					font-style: italic;
+					font-size: 1.4em;
 					margin-bottom: 20px;
 					text-transform: lowercase;
+					opacity: 0.7;
 				}
 				p{
 					color: white;
@@ -88,6 +90,7 @@
 				}
 			}
 			.infos.infoActive{
+				visibility: visible;
 				opacity: 1;
 				&:hover{
 					cursor: default;

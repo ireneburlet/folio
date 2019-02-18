@@ -108,10 +108,7 @@
 				slider.previousSlide();
 			}
 		}
-		slider.slides.forEach(function(item) {
-			item.style.display = "none";
-		});
-		slider.slides[slider.slideIndex].style.display = "block";
+		slider.displayImage();
 	};
 
 	// change the style of cursor on the hover of the project img (next or prev)
